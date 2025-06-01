@@ -1,0 +1,23 @@
+/* css/styles.css */
+body {
+    scroll-behavior: smooth;
+}
+
+.font-libre {
+    font-family: 'Libre Baskerville', serif;
+}
+
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-scrolled a {
+    color: #4c4c4c !important;
+}
+
+#mobile-menu {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+}
