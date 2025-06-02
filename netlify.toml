@@ -4,13 +4,12 @@
 
 # Headers específicos para la imagen del hero
 [[headers]]
-  for = "/images/hero*"
+  for = "/assets/RENDERS ALCALDE MIL/fachada_opt.webp"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
     Content-Type = "image/webp"
-    Early-Hints = "link</images/hero.webp>; rel=preload; as=image"
-    Link = "</images/hero.webp>; rel=preload; as=image"
     Priority = "high"
+    Early-Hints = "</assets/RENDERS ALCALDE MIL/fachada_opt.webp>; rel=preload; as=image"
 
 # Configuración de headers para caché y optimización
 [[headers]]

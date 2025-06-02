@@ -1,4 +1,16 @@
 /* css/styles.css */
+
+/* Base Variables */
+:root {
+    --color-primary: #4c5473;
+    --color-accent: #e2da92;
+    --color-background: #f7f5e5;
+    --color-text: #4c4c4c;
+    --font-primary: 'Work Sans', sans-serif;
+    --font-heading: 'Libre Baskerville', serif;
+}
+
+/* Base Styles */
 body {
     scroll-behavior: smooth;
     font-family: var(--font-primary);
@@ -6,10 +18,11 @@ body {
     color: var(--color-text);
 }
 
-.font-libre {
-    font-family: 'Libre Baskerville', serif;
+h1, h2, h3 {
+    font-family: var(--font-heading);
 }
 
+/* Navigation */
 .navbar-scrolled {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
@@ -25,39 +38,91 @@ body {
     backdrop-filter: blur(8px);
 }
 
-/* Base Variables */
-:root {
-    --color-primary: #4c5473;
-    --color-accent: #e2da92;
-    --color-background: #f7f5e5;
-    --color-text: #4c4c4c;
-    --font-primary: 'Work Sans', sans-serif;
-    --font-heading: 'Libre Baskerville', serif;
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
 
-h1, h2, h3 {
-    font-family: var(--font-heading);
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Progressive Image Loading - Gallery Specific */
-#galeria img {
-    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 2s ease-in-out;
+/* Gallery Section */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-#galeria img.loading {
+.gallery-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(76, 84, 115, 0.9), transparent);
     opacity: 0;
-    filter: blur(10px);
+    transition: opacity 0.3s ease;
 }
 
-#galeria img.loaded {
+.gallery-item:hover .gallery-overlay {
     opacity: 1;
-    filter: blur(0);
 }
 
-/* Image Skeleton Loader */
-.image-skeleton {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
+/* Form Styles */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--color-primary);
+    background: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.form-label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+    top: -0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-accent);
+}
+
+/* Utility Classes */
+.font-libre {
+    font-family: 'Libre Baskerville', serif;
 }
 
 /* Map SVG styles */
@@ -75,19 +140,32 @@ h1, h2, h3 {
     transition: opacity 0.5s ease;
 }
 
-/* Hero Section */
-#inicio {
-    background-image: url('../assets/RENDERS ALCALDE MIL/fachada_opt.webp');
+/* Progressive Image Loading */
+.progressive-image {
+    transition: opacity 0.3s ease-out, filter 0.3s ease-out;
 }
 
-#inicio .animate-slow-zoom {
-    background-image: url('../assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
+.progressive-image.loading {
+    opacity: 0;
+    filter: blur(10px);
 }
 
+.progressive-image.loaded {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    #inicio {
-        background-image: url('../assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
+}
+
+/* Image Skeleton Loader */
+.image-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
 }
 
 /* About Project Section */

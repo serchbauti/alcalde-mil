@@ -39,17 +39,6 @@
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/animations.css">
-
-  <!-- Inline critical CSS for hero image -->
-  <style>
-    .hero-image {
-      background-image: url('assets/RENDERS ALCALDE MIL/fachada_opt.webp');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      will-change: transform;
-    }
-  </style>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -99,43 +88,34 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="h-screen flex items-center relative overflow-hidden">
-        <!-- Hero background with optimized loading -->
-        <picture class="absolute inset-0">
-            <source srcset="assets/RENDERS ALCALDE MIL/fachada_opt.webp" type="image/webp">
-            <img src="assets/RENDERS ALCALDE MIL/fachada_opt.webp" 
-                 alt="Alcalde Mil - Vista Principal" 
-                 class="w-full h-full object-cover hero-image"
-                 width="1920"
-                 height="1080"
-                 fetchpriority="highest"
-                 decoding="sync"
-                 loading="eager">
-        </picture>
-        
-        <!-- Dark overlay -->
-        <div class="absolute inset-0 bg-black/90 animate-fade-in"></div>
-        
-        <!-- Background zoom effect -->
-        <div class="absolute inset-0 hero-image animate-slow-zoom"></div>
+    <section id="inicio" class="h-screen relative overflow-hidden">
+        <img src="assets/RENDERS ALCALDE MIL/fachada_opt.webp" 
+             alt="Alcalde Mil - Vista Principal" 
+             class="absolute inset-0 w-full h-full object-cover animate-slow-zoom"
+             width="1920"
+             height="1080"
+             fetchpriority="highest"
+             decoding="sync"
+             loading="eager">
         
         <!-- Hero content -->
-        <div class="relative z-10 max-w-7xl mx-auto w-full text-white">
+        <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex items-center text-white px-4">
             <div class="space-y-16">
                 <div class="space-y-4">
                     <div class="overflow-hidden">
-                        <h1 class="text-5xl md:text-7xl font-bold transform translate-y-full animate-slide-up">
+                        <h1 class="text-5xl md:text-7xl font-bold tracking-wide hero-title hero-title-delay-1">
                             VIVE EN EL CENTRO
                         </h1>
                     </div>
                     <div class="overflow-hidden">
-                        <h1 class="text-5xl md:text-7xl font-bold transform translate-y-full animate-slide-up delay-300">
+                        <h1 class="text-5xl md:text-7xl font-bold tracking-wider hero-title hero-title-delay-2">
                             DE GUADALAJARA.
                         </h1>
+                        <br>
                     </div>
                 </div>
                 <div class="overflow-hidden">
-                    <p class="text-4xl md:text-6xl font-medium transform translate-y-full animate-slide-up delay-500">
+                    <p class="text-4xl md:text-6xl font-medium hero-title hero-title-delay-3">
                         DEPARTAMENTOS DE 1 Y 2 RECÁMARAS
                     </p>
                 </div>
