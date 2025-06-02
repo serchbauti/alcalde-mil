@@ -16,15 +16,16 @@
   
   <title>AlcaldeMil | Vive en el centro de Guadalajara</title>
 
+  <!-- Critical Hero Image Preload -->
+  <link rel="preload" as="image" href="assets/RENDERS ALCALDE MIL/fachada_opt.webp" fetchpriority="highest" type="image/webp">
+  
+  <!-- Other Preloads -->
+  <link rel="preload" as="image" href="assets/logo_big.png" fetchpriority="high">
+  
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="assets/LOGOS ALCALDE MIL/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="assets/LOGOS ALCALDE MIL/favicon.ico">
 
-  <!-- Preload critical images -->
-  <link rel="preload" as="image" href="assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/logo_big.png" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/RENDERS ALCALDE MIL/TERRAZA NOCTURNA_2.jpg" fetchpriority="high">
-  
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,6 +39,17 @@
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Inline critical CSS for hero image -->
+  <style>
+    .hero-image {
+      background-image: url('assets/RENDERS ALCALDE MIL/fachada_opt.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      will-change: transform;
+    }
+  </style>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -87,13 +99,25 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" 
-             class="h-screen flex items-center bg-cover bg-center px-4 relative overflow-hidden">
+    <section id="inicio" class="h-screen flex items-center relative overflow-hidden">
+        <!-- Hero background with optimized loading -->
+        <picture class="absolute inset-0">
+            <source srcset="assets/RENDERS ALCALDE MIL/fachada_opt.webp" type="image/webp">
+            <img src="assets/RENDERS ALCALDE MIL/fachada_opt.webp" 
+                 alt="Alcalde Mil - Vista Principal" 
+                 class="w-full h-full object-cover hero-image"
+                 width="1920"
+                 height="1080"
+                 fetchpriority="highest"
+                 decoding="sync"
+                 loading="eager">
+        </picture>
+        
         <!-- Dark overlay -->
         <div class="absolute inset-0 bg-black/90 animate-fade-in"></div>
         
         <!-- Background zoom effect -->
-        <div class="absolute inset-0 bg-cover bg-center animate-slow-zoom"></div>
+        <div class="absolute inset-0 hero-image animate-slow-zoom"></div>
         
         <!-- Hero content -->
         <div class="relative z-10 max-w-7xl mx-auto w-full text-white">

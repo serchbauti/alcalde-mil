@@ -2,6 +2,16 @@
 [build]
   publish = "/"
 
+# Headers específicos para la imagen del hero
+[[headers]]
+  for = "/images/hero*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "image/webp"
+    Early-Hints = "link</images/hero.webp>; rel=preload; as=image"
+    Link = "</images/hero.webp>; rel=preload; as=image"
+    Priority = "high"
+
 # Configuración de headers para caché y optimización
 [[headers]]
   for = "/assets/*"
@@ -11,21 +21,34 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Accept-Encoding = "br, gzip"
+    Vary = "Accept-Encoding"
 
 [[headers]]
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Accept-Encoding = "br, gzip"
+    Vary = "Accept-Encoding"
 
 [[headers]]
   for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Accept-Encoding = "br, gzip"
+    Vary = "Accept-Encoding"
 
 [[headers]]
   for = "/*.webp"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "image/webp"
+
+# Headers específicos para imágenes
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "image/webp"
 
 # Configuración de compresión
 [build.processing]
@@ -44,7 +67,21 @@
 # Configuración específica para imágenes
 [build.image]
   compress = true
-  quality = 85
+  quality = 80
+  width = [640, 750, 828, 1080, 1200, 1920, 2048, 3840]
+  height = [640, 750, 828, 1080, 1200, 1920, 2048, 3840]
+  withWebp = true
+  stripMetadata = true
+
+# Configuración específica para la imagen del hero
+[build.image.hero]
+  quality = 75
+  compress = true
+  withWebp = true
+  stripMetadata = true
+  width = [1200, 1920]
+  height = [800, 1080]
+  placeholder = "blur"
 
 # Reglas de redirección y optimización
 [[redirects]]
