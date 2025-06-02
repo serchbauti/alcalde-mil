@@ -55,20 +55,4 @@
 # Configuraciones de rendimiento
 [context.production.environment]
   NETLIFY_USE_YARN = "true"
-  NODE_VERSION = "16"
-  
-# Configuración de optimización de imágenes
-[[plugins]]
-  package = "netlify-plugin-submit-sitemap"
-
-[[plugins]]
-  package = "netlify-plugin-inline-critical-css"
-
-[[plugins]]
-  package = "netlify-plugin-cache"
-  [plugins.inputs]
-    paths = [
-      "node_modules/.cache",
-      ".cache",
-      "public"
-    ] 
+  NODE_VERSION = "16" 
