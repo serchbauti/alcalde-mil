@@ -14,11 +14,19 @@
   <meta property="og:locale" content="es_MX" />
   <meta name="robots" content="index, follow" />
   
-  <title>Alcalde Mil - Departamentos en el Centro de Guadalajara | Grupo Casillas</title>
+  <title>AlcaldeMil | Vive en el centro de Guadalajara</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/LOGOS ALCALDE MIL/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/LOGOS ALCALDE MIL/favicon.ico">
 
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/logo_big.png" fetchpriority="high">
   
   <!-- Font loading -->
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -50,6 +58,33 @@
     h1, h2, h3 {
       font-family: var(--font-heading);
     }
+
+    /* Progressive Image Loading - Only for Gallery */
+    #galeria img {
+      transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+    }
+
+    #galeria img.loading {
+      opacity: 0;
+      filter: blur(10px);
+    }
+
+    #galeria img.loaded {
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    /* Skeleton loader for images */
+    .image-skeleton {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
   </style>
 </head>
 <body>
@@ -67,17 +102,19 @@
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8 text-xl uppercase font-bold" aria-label="Main navigation">
                 <a href="#inicio" class="hover:text-[#4c5473] p-2 text-white transition-colors">Inicio</a>
-                <a href="#departamentos" class="hover:text-[#4c5473] p-2 text-white transition-colors">Departamentos</a>
                 <a href="#galeria" class="hover:text-[#4c5473] p-2 text-white transition-colors">Galería</a>
+                <a href="#estadisticas" class="hover:text-[#4c5473] p-2 text-white transition-colors">Departamentos</a>
                 <a href="#contacto" class="hover:text-[#4c5473] p-2 text-white transition-colors">Contacto</a>
             </nav>
             
             <!-- Casillas Logo -->
             <div class="hidden md:block w-16">
-                <img src="assets/RENDERS ALCALDE MIL/casillas_color.png" 
-                     alt="Grupo Casillas" 
-                     class="w-full h-auto object-contain" 
-                     loading="lazy" />
+                <a href="https://grupocasillas.mx/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/RENDERS ALCALDE MIL/casillas_color.png" 
+                         alt="Grupo Casillas" 
+                         class="w-full h-auto object-contain hover:opacity-80 transition-opacity" 
+                         loading="lazy" />
+                </a>
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -91,16 +128,27 @@
         <!-- Mobile Navigation -->
         <nav id="mobile-menu" class="md:hidden hidden px-4 pb-4" aria-label="Mobile navigation">
             <a href="#inicio" class="block py-2 text-sm hover:text-[#4c5473]">Inicio</a>
-            <a href="#departamentos" class="block py-2 text-sm hover:text-[#4c5473]">Departamentos</a>
             <a href="#galeria" class="block py-2 text-sm hover:text-[#4c5473]">Galería</a>
+            <a href="#estadisticas" class="block py-2 text-sm hover:text-[#4c5473]">Departamentos</a>
             <a href="#contacto" class="block py-2 text-sm hover:text-[#4c5473]">Contacto</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="inicio" 
-             class="h-screen flex items-center bg-cover bg-center px-4 relative overflow-hidden" 
-             style="background-image: url('assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');">
+             class="h-screen flex items-center bg-cover bg-center px-4 relative overflow-hidden">
+        <!-- Use responsive background image -->
+        <style>
+            #inicio {
+                background-image: url('assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
+            }
+            @media (max-width: 768px) {
+                #inicio {
+                    background-image: url('assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
+                    /* Use a smaller version for mobile if available */
+                }
+            }
+        </style>
         <!-- Dark overlay -->
         <div class="absolute inset-0 bg-black/90 animate-fade-in"></div>
         
@@ -241,7 +289,7 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-100">
                 <img src="assets/RENDERS ALCALDE MIL/PATIO CENTRAL.jpeg" 
                      alt="Patio Central de Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
                      loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
@@ -254,7 +302,7 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-200">
                 <img src="assets/RENDERS ALCALDE MIL/COWORKING.jpg" 
                      alt="Área de Coworking Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
                      loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
@@ -267,7 +315,7 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-300">
                 <img src="assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png" 
                      alt="Fachada Principal Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
                      loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
@@ -280,7 +328,7 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-400">
                 <img src="assets/RENDERS ALCALDE MIL/TERRAZA NOCTURNA_1.jpg" 
                      alt="Áreas Comunes Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
                      loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
@@ -293,7 +341,7 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-500">
                 <img src="assets/RENDERS ALCALDE MIL/GIMNASIO.jpeg" 
                      alt="Amenidades Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
                      loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
@@ -304,9 +352,9 @@
             </div>
 
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-600">
-                <img src="assets/RENDERS ALCALDE MIL/VISTA AÉREA 1_DESDE AGUA AZUL.jpg" 
+                <img src="assets/RENDERS ALCALDE MIL/VISTA AÉREA 1_DESDE AGUA AZUL.jpg" 
                      alt="Vistas Panorámicas desde Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
                      loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
@@ -520,19 +568,23 @@
 
             <!-- G Casillas Logo -->
             <div class="flex justify-center items-center -mt-4 -mb-2">
-                <img src="assets/RENDERS ALCALDE MIL/g_casillas.png" 
-                     alt="G Casillas" 
-                     class="w-72 h-auto object-contain" 
-                     loading="lazy" />
+                <a href="https://grupocasillas.mx/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/RENDERS ALCALDE MIL/g_casillas.png" 
+                         alt="G Casillas" 
+                         class="w-72 h-auto object-contain hover:opacity-80 transition-opacity" 
+                         loading="lazy" />
+                </a>
             </div>
 
             <!-- Grupo Casillas Logo -->
-            <img 
-                src="assets/LOGOS ALCALDE MIL/grupo-casillas-logo.png"
-                alt="Grupo Casillas" 
-                class="mx-auto w-20 sm:w-24 mb-1"
-                loading="lazy"
-            >
+            <a href="https://grupocasillas.mx/" target="_blank" rel="noopener noreferrer" class="inline-block">
+                <img 
+                    src="assets/LOGOS ALCALDE MIL/grupo-casillas-logo.png"
+                    alt="Grupo Casillas" 
+                    class="mx-auto w-20 sm:w-24 mb-1 hover:opacity-80 transition-opacity"
+                    loading="lazy"
+                >
+            </a>
 
             <!-- Copyright -->
             <div class="text-center text-sm text-[#4c5473] mb-1">
@@ -557,6 +609,7 @@
 
     <!-- External Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/progressive-images.js"></script>
     <script>
         // Map animation controller
         let hasAnimated = false;
