@@ -128,16 +128,14 @@ h1, h2, h3 {
 /* Map SVG styles */
 .map-svg {
     background-color: #4c5473;
+    opacity: 0;
+    transform: scale(0.98);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.map-svg path {
-    stroke: #e2da92;
-    stroke-width: 2;
-    fill: none;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+.map-svg.loaded {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* Progressive Image Loading */

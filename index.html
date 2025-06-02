@@ -362,13 +362,14 @@
     <!-- Location Section with Map -->
     <section id="ubicacion" class="relative h-screen w-full overflow-hidden bg-[#4c5473]">
         <div class="h-full w-full flex items-center justify-center">
-            <div class="w-full h-full md:h-auto md:aspect-[4/3] opacity-0 transition-all duration-1000 ease-out map-container">
-                <object 
-                    data="assets/RENDERS ALCALDE MIL/mapa.svg" 
-                    type="image/svg+xml"
+            <div class="w-full h-full md:h-auto md:aspect-[4/3] map-container">
+                <img 
+                    src="assets/RENDERS ALCALDE MIL/mapa.svg" 
+                    alt="Mapa de ubicación de Alcalde Mil"
                     class="w-full h-full map-svg"
-                    aria-label="Mapa de ubicación de Alcalde Mil"
-                ></object>
+                    loading="lazy"
+                    decoding="async"
+                />
             </div>
         </div>
     </section>
