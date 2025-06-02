@@ -1,6 +1,9 @@
 /* css/styles.css */
 body {
     scroll-behavior: smooth;
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
 .font-libre {
@@ -20,4 +23,74 @@ body {
 #mobile-menu {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
+}
+
+/* Base Variables */
+:root {
+    --color-primary: #4c5473;
+    --color-accent: #e2da92;
+    --color-background: #f7f5e5;
+    --color-text: #4c4c4c;
+    --font-primary: 'Work Sans', sans-serif;
+    --font-heading: 'Libre Baskerville', serif;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+}
+
+/* Progressive Image Loading - Gallery Specific */
+#galeria img {
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out, transform 2s ease-in-out;
+}
+
+#galeria img.loading {
+    opacity: 0;
+    filter: blur(10px);
+}
+
+#galeria img.loaded {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* Image Skeleton Loader */
+.image-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+}
+
+/* Map SVG styles */
+.map-svg {
+    background-color: #4c5473;
+}
+
+.map-svg path {
+    stroke: #e2da92;
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Hero Section */
+#inicio {
+    background-image: url('../assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
+}
+
+#inicio .animate-slow-zoom {
+    background-image: url('../assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
+}
+
+@media (max-width: 768px) {
+    #inicio {
+        background-image: url('../assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
+    }
+}
+
+/* About Project Section */
+#about-project {
+    background-image: url('../assets/RENDERS ALCALDE MIL/COWORKING.jpg');
 }

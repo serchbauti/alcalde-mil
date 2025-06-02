@@ -213,3 +213,63 @@ const statsObserver = new IntersectionObserver((entries) => {
     threshold: 0.3,
     rootMargin: '-50px'
 });
+
+// Map animation controller
+let hasAnimated = false;
+
+// Function to start map animations
+function startMapAnimations() {
+    if (hasAnimated) return;
+    hasAnimated = true;
+
+    // Show map container
+    const container = document.querySelector('.map-container');
+    container.style.opacity = '1';
+
+    // Animate SVG
+    const svgObject = document.querySelector('.map-svg');
+    if (svgObject.contentDocument) {
+        animateSVGPaths(svgObject.contentDocument);
+    } else {
+        svgObject.addEventListener('load', function() {
+            animateSVGPaths(this.contentDocument);
+        });
+    }
+}
+
+// Function to animate SVG paths
+function animateSVGPaths(svgDoc) {
+    if (!svgDoc) return;
+
+    const svg = svgDoc.querySelector('svg');
+    if (svg) {
+        svg.style.backgroundColor = '#4c5473';
+    }
+
+    const paths = svgDoc.querySelectorAll('path');
+    paths.forEach((path, index) => {
+        setTimeout(() => {
+            path.style.animation = `drawPath 1.5s ease-out forwards`;
+        }, index * 100);
+    });
+}
+
+// Set up Intersection Observer for map
+const observerMap = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+            startMapAnimations();
+        }
+    });
+}, { 
+    threshold: 0.3
+});
+
+// Initialize observers when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Observe map section
+    const mapSection = document.querySelector('#ubicacion');
+    if (mapSection) {
+        observerMap.observe(mapSection);
+    }
+});

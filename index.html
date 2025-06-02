@@ -37,55 +37,6 @@
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/animations.css">
-
-  <!-- Inline critical CSS -->
-  <style>
-    :root {
-      --color-primary: #4c5473;
-      --color-accent: #e2da92;
-      --color-background: #f7f5e5;
-      --color-text: #4c4c4c;
-      --font-primary: 'Work Sans', sans-serif;
-      --font-heading: 'Libre Baskerville', serif;
-    }
-
-    body {
-      font-family: var(--font-primary);
-      background-color: var(--color-background);
-      color: var(--color-text);
-    }
-
-    h1, h2, h3 {
-      font-family: var(--font-heading);
-    }
-
-    /* Progressive Image Loading - Only for Gallery */
-    #galeria img {
-      transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
-    }
-
-    #galeria img.loading {
-      opacity: 0;
-      filter: blur(10px);
-    }
-
-    #galeria img.loaded {
-      opacity: 1;
-      filter: blur(0);
-    }
-
-    /* Skeleton loader for images */
-    .image-skeleton {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-    }
-
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-  </style>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -137,24 +88,11 @@
     <!-- Hero Section -->
     <section id="inicio" 
              class="h-screen flex items-center bg-cover bg-center px-4 relative overflow-hidden">
-        <!-- Use responsive background image -->
-        <style>
-            #inicio {
-                background-image: url('assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
-            }
-            @media (max-width: 768px) {
-                #inicio {
-                    background-image: url('assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');
-                    /* Use a smaller version for mobile if available */
-                }
-            }
-        </style>
         <!-- Dark overlay -->
         <div class="absolute inset-0 bg-black/90 animate-fade-in"></div>
         
         <!-- Background zoom effect -->
-        <div class="absolute inset-0 bg-cover bg-center animate-slow-zoom" 
-             style="background-image: url('assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png');"></div>
+        <div class="absolute inset-0 bg-cover bg-center animate-slow-zoom"></div>
         
         <!-- Hero content -->
         <div class="relative z-10 max-w-7xl mx-auto w-full text-white">
@@ -182,8 +120,7 @@
 
     <!-- About Project Section -->
     <section id="about-project" 
-             class="relative min-h-screen flex items-center py-20 md:py-32 px-6 bg-cover bg-center bg-fixed text-white overflow-hidden" 
-             style="background-image: url('assets/RENDERS ALCALDE MIL/COWORKING.jpg');">
+             class="relative min-h-screen flex items-center py-20 md:py-32 px-6 bg-cover bg-center bg-fixed text-white overflow-hidden">
         <div class="absolute inset-0 bg-black/50"></div>
         
         <div class="relative z-10 max-w-6xl mx-auto">
@@ -289,10 +226,10 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-100">
                 <img src="assets/RENDERS ALCALDE MIL/PATIO CENTRAL.jpeg" 
                      alt="Patio Central de Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
+                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
                         <h3 class="text-[#e2da92] text-xl font-bold mb-2">Patio Central</h3>
                         <p class="text-[#f7f5e5] text-sm">Un espacio de convivencia diseñado para ti</p>
                     </div>
@@ -302,10 +239,10 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-200">
                 <img src="assets/RENDERS ALCALDE MIL/COWORKING.jpg" 
                      alt="Área de Coworking Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
+                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
                         <h3 class="text-[#e2da92] text-xl font-bold mb-2">Área de Coworking</h3>
                         <p class="text-[#f7f5e5] text-sm">Espacios modernos para trabajar y crear</p>
                     </div>
@@ -315,10 +252,10 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-300">
                 <img src="assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png" 
                      alt="Fachada Principal Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
+                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
                         <h3 class="text-[#e2da92] text-xl font-bold mb-2">Fachada Principal</h3>
                         <p class="text-[#f7f5e5] text-sm">Diseño arquitectónico de vanguardia</p>
                     </div>
@@ -328,10 +265,10 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-400">
                 <img src="assets/RENDERS ALCALDE MIL/TERRAZA NOCTURNA_1.jpg" 
                      alt="Áreas Comunes Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
+                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
                         <h3 class="text-[#e2da92] text-xl font-bold mb-2">Áreas Comunes</h3>
                         <p class="text-[#f7f5e5] text-sm">Espacios diseñados para tu comodidad</p>
                     </div>
@@ -341,10 +278,10 @@
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-500">
                 <img src="assets/RENDERS ALCALDE MIL/GIMNASIO.jpeg" 
                      alt="Amenidades Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
+                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
                         <h3 class="text-[#e2da92] text-xl font-bold mb-2">Amenidades</h3>
                         <p class="text-[#f7f5e5] text-sm">Lujo y confort en cada detalle</p>
                     </div>
@@ -352,14 +289,16 @@
             </div>
 
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-600">
-                <img src="assets/RENDERS ALCALDE MIL/VISTA AÉREA 1_DESDE AGUA AZUL.jpg" 
-                     alt="Vistas Panorámicas desde Alcalde Mil" 
-                     class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" 
-                     loading="lazy" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Vistas Panorámicas</h3>
-                        <p class="text-[#f7f5e5] text-sm">Contempla la ciudad desde las alturas</p>
+                <img src="assets/RENDERS ALCALDE MIL/TERRAZA NOCTURNA_2.jpg" 
+                     alt="Terraza Nocturna Alcalde Mil" 
+                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
+                     loading="lazy"
+                     decoding="async"
+                     fetchpriority="high" />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
+                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Terraza Nocturna</h3>
+                        <p class="text-[#f7f5e5] text-sm">Un espacio mágico para tus noches</p>
                     </div>
                 </div>
             </div>
@@ -610,86 +549,5 @@
     <!-- External Scripts -->
     <script src="js/main.js"></script>
     <script src="js/progressive-images.js"></script>
-    <script>
-        // Map animation controller
-        let hasAnimated = false;
-
-        // Function to start map animations
-        function startMapAnimations() {
-            if (hasAnimated) return;
-            hasAnimated = true;
-
-            // Show map container
-            const container = document.querySelector('.map-container');
-            container.style.opacity = '1';
-
-            // Animate SVG
-            const svgObject = document.querySelector('.map-svg');
-            if (svgObject.contentDocument) {
-                animateSVGPaths(svgObject.contentDocument);
-            } else {
-                svgObject.addEventListener('load', function() {
-                    animateSVGPaths(this.contentDocument);
-                });
-            }
-        }
-
-        // Function to animate SVG paths
-        function animateSVGPaths(svgDoc) {
-            if (!svgDoc) return;
-
-            const svg = svgDoc.querySelector('svg');
-            if (svg) {
-                svg.style.backgroundColor = '#4c5473';
-            }
-
-            const paths = svgDoc.querySelectorAll('path');
-            paths.forEach((path, index) => {
-                setTimeout(() => {
-                    path.style.animation = `drawPath 1.5s ease-out forwards`;
-                }, index * 100);
-            });
-        }
-
-        // Set up Intersection Observer for map
-        const observerMap = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    startMapAnimations();
-                }
-            });
-        }, { 
-            threshold: 0.3
-        });
-
-        // Observe map section
-        observerMap.observe(document.querySelector('#ubicacion'));
-    </script>
-
-    <!-- Map animation styles -->
-    <style>
-        /* Map SVG styles */
-        .map-svg {
-            background-color: #4c5473;
-        }
-
-        .map-svg path {
-            stroke: #e2da92;
-            stroke-width: 2;
-            fill: none;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        /* Path drawing animation */
-        @keyframes drawPath {
-            to {
-                stroke-dashoffset: 0;
-                opacity: 1;
-            }
-        }
-    </style>
 </body>
 </html>
