@@ -1,0 +1,61 @@
+# Configuración general del sitio
+[build]
+  publish = "/"
+  command = "# no build command"
+
+# Plugin para optimización de imágenes
+[[plugins]]
+  package = "netlify-plugin-image-optim"
+
+# Plugin para análisis de rendimiento
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Configuración de headers para caché y optimización
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Reglas de redirección y optimización
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Configuración de compresión
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true
+
+# Configuración específica para imágenes
+[build.image]
+  compress = true
+  quality = 85
+  
+# Configuraciones de rendimiento
+[context.production.environment]
+  NETLIFY_USE_YARN = "true"
+  NODE_VERSION = "16" 
