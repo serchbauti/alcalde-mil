@@ -223,9 +223,32 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 relative">
-            <!-- Gallery items with consistent structure -->
+            <!-- Terraza Nocturna (Movida al principio) -->
             <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-100">
-                <img src="assets/RENDERS ALCALDE MIL/PATIO CENTRAL.jpeg" 
+                <picture>
+                    <!-- Versión WebP -->
+                    <source srcset="assets/RENDERS ALCALDE MIL/TERRAZA NOCTURNA_2.webp" type="image/webp">
+                    <!-- Fallback JPG -->
+                    <img src="assets/RENDERS ALCALDE MIL/VISTA ROOF.webp" 
+                         alt="Terraza Nocturna Alcalde Mil" 
+                         class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
+                         loading="eager"
+                         fetchpriority="high"
+                         decoding="async"
+                         width="800"
+                         height="800" />
+                </picture>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
+                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Terraza Nocturna</h3>
+                        <p class="text-[#f7f5e5] text-sm">Un espacio mágico para tus noches</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resto de las imágenes -->
+            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-200">
+                <img src="assets/RENDERS ALCALDE MIL/PATIO CENTRAL.webp" 
                      alt="Patio Central de Alcalde Mil" 
                      class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy"
@@ -239,8 +262,8 @@
                 </div>
             </div>
 
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-200">
-                <img src="assets/RENDERS ALCALDE MIL/COWORKING.jpg" 
+            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-300">
+                <img src="assets/RENDERS ALCALDE MIL/COWORKING.webp" 
                      alt="Área de Coworking Alcalde Mil" 
                      class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy"
@@ -254,8 +277,8 @@
                 </div>
             </div>
 
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-300">
-                <img src="assets/RENDERS ALCALDE MIL/FACHADA DESDE 16 DE SEPTIEMBRE.png" 
+            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-400">
+                <img src="assets/RENDERS ALCALDE MIL/fachada_opt.webp" 
                      alt="Fachada Principal Alcalde Mil" 
                      class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy"
@@ -269,8 +292,8 @@
                 </div>
             </div>
 
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-400">
-                <img src="assets/RENDERS ALCALDE MIL/TERRAZA NOCTURNA_1.jpg" 
+            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-500">
+                <img src="assets/RENDERS ALCALDE MIL/TERRAZA_NOCTURNA_1_OPT.webp" 
                      alt="Áreas Comunes Alcalde Mil" 
                      class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy"
@@ -284,8 +307,8 @@
                 </div>
             </div>
 
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-500">
-                <img src="assets/RENDERS ALCALDE MIL/GIMNASIO.jpeg" 
+            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-600">
+                <img src="assets/RENDERS ALCALDE MIL/GIMNASIO.webp" 
                      alt="Amenidades Alcalde Mil" 
                      class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
                      loading="lazy"
@@ -295,23 +318,6 @@
                     <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
                         <h3 class="text-[#e2da92] text-xl font-bold mb-2">Amenidades</h3>
                         <p class="text-[#f7f5e5] text-sm">Lujo y confort en cada detalle</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-600">
-                <img src="assets/RENDERS ALCALDE MIL/TERRAZA NOCTURNA_2.jpg" 
-                     alt="Terraza Nocturna Alcalde Mil" 
-                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
-                     loading="eager"
-                     fetchpriority="high"
-                     decoding="async"
-                     width="800"
-                     height="800" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
-                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Terraza Nocturna</h3>
-                        <p class="text-[#f7f5e5] text-sm">Un espacio mágico para tus noches</p>
                     </div>
                 </div>
             </div>
