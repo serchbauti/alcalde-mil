@@ -55,7 +55,7 @@
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8 text-xl uppercase font-bold" aria-label="Main navigation">
                 <a href="#inicio" class="hover:text-[#4c5473] p-2 text-white transition-colors">Inicio</a>
-                <a href="#galeria" class="hover:text-[#4c5473] p-2 text-white transition-colors">Galería</a>
+                <a href="#conocenos" class="hover:text-[#4c5473] p-2 text-white transition-colors">Conócenos</a>
                 <a href="#estadisticas" class="hover:text-[#4c5473] p-2 text-white transition-colors">Departamentos</a>
                 <a href="#contacto" class="hover:text-[#4c5473] p-2 text-white transition-colors">Contacto</a>
             </nav>
@@ -81,7 +81,7 @@
         <!-- Mobile Navigation -->
         <nav id="mobile-menu" class="md:hidden hidden px-4 pb-4" aria-label="Mobile navigation">
             <a href="#inicio" class="block py-2 text-sm hover:text-[#4c5473]">Inicio</a>
-            <a href="#galeria" class="block py-2 text-sm hover:text-[#4c5473]">Galería</a>
+            <a href="#conocenos" class="block py-2 text-sm hover:text-[#4c5473]">Conócenos</a>
             <a href="#estadisticas" class="block py-2 text-sm hover:text-[#4c5473]">Departamentos</a>
             <a href="#contacto" class="block py-2 text-sm hover:text-[#4c5473]">Contacto</a>
         </nav>
@@ -100,22 +100,19 @@
         
         <!-- Hero content -->
         <div class="relative z-10 max-w-7xl mx-auto w-full h-full flex items-center text-white px-4">
-            <div class="space-y-16">
-                <div class="space-y-4">
-                    <div class="overflow-hidden">
-                        <h1 class="text-5xl md:text-7xl font-bold tracking-wide hero-title hero-title-delay-1">
-                            VIVE EN EL CENTRO
-                        </h1>
-                    </div>
-                    <div class="overflow-hidden">
-                        <h1 class="text-5xl md:text-7xl font-bold tracking-wider hero-title hero-title-delay-2">
-                            DE GUADALAJARA.
-                        </h1>
-                        <br>
-                    </div>
+            <div class="space-y-8 sm:space-y-12 md:space-y-16">
+                <div class="overflow-hidden">
+                    <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-wide hero-title hero-title-delay-1">
+                        VIVE EN EL CENTRO
+                    </h1>
                 </div>
                 <div class="overflow-hidden">
-                    <p class="text-4xl md:text-6xl font-medium hero-title hero-title-delay-3">
+                    <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-wider hero-title hero-title-delay-2">
+                        DE GUADALAJARA.
+                    </h1>
+                </div>
+                <div class="overflow-hidden">
+                    <p class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-medium hero-title hero-title-delay-3">
                         DEPARTAMENTOS DE 1 Y 2 RECÁMARAS
                     </p>
                 </div>
@@ -124,20 +121,18 @@
     </section>
 
     <!-- About Project Section -->
-    <section id="about-project" 
-             class="relative min-h-screen flex items-center py-20 md:py-32 px-6 bg-cover bg-center bg-fixed text-white overflow-hidden">
+    <section id="about-project" class="relative min-h-screen flex items-center py-20 md:py-32 px-6 bg-cover bg-center bg-fixed text-white overflow-hidden">
         <div class="absolute inset-0 bg-black/50"></div>
-        
         <div class="relative z-10 max-w-6xl mx-auto">
             <div class="w-full text-center" id="project-content">
-                <h2 class="text-5xl md:text-7xl font-bold mb-12 font-libre opacity-0 -translate-y-10 transition-all duration-1000 delay-300" id="project-title">
+                <h2 class="text-5xl md:text-7xl font-bold mb-12 font-libre opacity-0 -translate-y-10 transition-all duration-1000" id="project-title">
                     Un concepto moderno frente al Parque Agua Azul
                 </h2>
                 <div class="space-y-8">
-                    <p class="text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed opacity-0 -translate-y-10 transition-all duration-1000 delay-500" id="project-desc-1">
+                    <p class="text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed opacity-0 -translate-y-10 transition-all duration-1000 delay-300" id="project-desc-1">
                         Alcalde Mil es un desarrollo conformado por <strong>2 torres</strong> de departamentos con opciones de <strong>1 y 2 recámaras</strong>.
                     </p>
-                    <p class="text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed opacity-0 -translate-y-10 transition-all duration-1000 delay-700" id="project-desc-2">
+                    <p class="text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed opacity-0 -translate-y-10 transition-all duration-1000 delay-500" id="project-desc-2">
                         Elige entre <strong>3 modelos</strong> desde <strong>46 m²</strong>, ideales para vivir o invertir, con vistas privilegiadas a uno de los pulmones verdes de la ciudad.
                     </p>
                 </div>
@@ -146,42 +141,22 @@
     </section>
 
     <!-- Urban Integration Section -->
-    <section class="relative py-32 overflow-hidden bg-[#4c5473]">
-        <div class="relative z-10 max-w-7xl mx-auto px-6">
-            <!-- First row -->
-            <div class="flex flex-col md:flex-row gap-16 items-center mb-32" id="integration-1">
-                <div class="w-full md:w-1/2 opacity-0 -translate-x-10 transition-all duration-1000 delay-300">
-                    <div class="relative">
-                        <img src="assets/RENDERS ALCALDE MIL/catedral.jpg" 
-                             alt="Catedral de Guadalajara - Centro histórico" 
-                             class="rounded-2xl shadow-2xl w-full object-cover aspect-4/3 transform hover:scale-105 transition-transform duration-500" 
-                             loading="lazy" />
-                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/2 opacity-0 translate-x-10 transition-all duration-1000 delay-500">
-                    <p class="text-base md:text-lg leading-relaxed font-medium text-[#e2da92] text-center">
-                        ALCALDE MIL ENTIENDE LA CIUDAD Y SE INTEGRA AL ENTORNO DE FORMA ARMONIOSA APROVECHANDO LA RECONVERSIÓN URBANA DE ESPACIOS PÚBLICOS QUE SE HAN RECUPERADO CREANDO UN ENTORNO PRIVADO SEGURO Y TRANQUILO QUE DA UN NUEVO SIGNIFICADO A SU UBICACIÓN APOSTANDO POR HACER LAS ZONAS CÉNTRICAS DE GUADALAJARA UNA CIUDAD PARA HABITARSE Y DISFRUTARSE.
-                    </p>
-                </div>
-            </div>
+    <section class="relative py-32 overflow-hidden min-h-screen flex items-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/RENDERS ALCALDE MIL/parque.jpg" 
+                 alt="Parque Agua Azul - Vista aérea" 
+                 class="w-full h-full object-cover brightness-150" />
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
 
-            <!-- Second row -->
-            <div class="flex flex-col-reverse md:flex-row gap-16 items-center" id="integration-2">
-                <div class="w-full md:w-1/2 opacity-0 -translate-x-10 transition-all duration-1000 delay-300">
-                    <p class="text-base md:text-lg leading-relaxed font-medium text-[#e2da92] text-center">
-                        UBICADO FRENTE AL PARQUE AGUA AZUL Y A UN COSTADO DE LA PLAZA JUÁREZ, ALCALDE MIL SE INTEGRA A LA CIUDAD COMO UN PROYECTO ÚNICO EN SU TIPO QUE BUSCA BRINDAR VIVIENDA VERTICAL DE GRAN CALIDAD, BELLEZA ARQUITECTÓNICA Y ESPACIOS BIEN PENSADOS EN UNA ZONA DONDE MUCHAS PERSONAS DIARIAMENTE ESTUDIAN Y TRABAJAN, Y QUE HASTA AHORA NO HAN TENIDO LA OPORTUNIDAD DE VIVIR EN UN DESARROLLO INTEGRAL CERCANO A SU MUNDO DIARIO.
-                    </p>
-                </div>
-                <div class="w-full md:w-1/2 opacity-0 translate-x-10 transition-all duration-1000 delay-500">
-                    <div class="relative">
-                        <img src="assets/RENDERS ALCALDE MIL/parque.jpg" 
-                             alt="Parque Agua Azul - Vista aérea" 
-                             class="rounded-2xl shadow-2xl w-full object-cover aspect-4/3 transform hover:scale-105 transition-transform duration-500" 
-                             loading="lazy" />
-                        <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
+        <!-- Content -->
+        <div class="relative z-10 max-w-6xl mx-auto px-6 w-full">
+            <div class="text-center">
+                <h2 class="text-5xl md:text-7xl font-baskerville text-white mb-8 opacity-0 -translate-y-10 transition-all duration-1000" id="integration-title">Inclusión Urbana</h2>
+                <p class="text-2xl md:text-3xl text-white max-w-4xl mx-auto opacity-0 -translate-y-10 transition-all duration-1000 delay-300" id="integration-text">
+                    Alcalde Mil entiende la ciudad y se integra al entorno de forma armoniosa aprovechando la reconversión urbana de espacios públicos que se han recuperado creando un entorno privado seguro y tranquilo que da un nuevo significado a su ubicación apostando por hacer las zonas céntricas de Guadalajara una ciudad para habitarse y disfrutarse.
+                </p>
             </div>
         </div>
     </section>
@@ -190,11 +165,11 @@
     <section class="bg-[#4c5473] text-[#e2da92] py-16 md:py-32 min-h-screen flex items-center justify-center text-center overflow-hidden px-4">
         <div class="max-w-6xl mx-auto">
             <div id="animated-text" class="space-y-4 md:space-y-6 opacity-0 translate-y-20 transition-all duration-1000">
-                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight line-1"></h2>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight line-2"></h2>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight line-3"></h2>
-                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight line-4"></h2>
-                <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight line-5"></h2>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight line-1">Su cercanía con el centro</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight line-2">paseo alcalde y la conectividad</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight line-3">urbana gracias a las ciclovías</h2>
+                <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight line-4">tren ligero y transporte</h2>
+                <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight line-5">lo hacen un espacio ideal para tener...</h2>
             </div>
         </div>
     </section>
@@ -214,119 +189,85 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="galeria" class="bg-[#4c5473] py-32 px-6 relative overflow-hidden">
+    <!-- Gallery Section con Modal y Animaciones -->
+    <section id="conocenos" class="bg-[#4c5473] py-32 px-6 relative overflow-hidden">
         <div class="max-w-7xl mx-auto text-center mb-24 relative">
-            <div class="overflow-hidden mb-6">
-                <h2 class="text-4xl md:text-6xl font-baskerville text-[#e2da92] transform translate-y-full gallery-animate">Galería</h2>
+            <div class="mb-6">
+                <h2 class="text-4xl md:text-6xl font-baskerville text-[#e2da92]">Conoce Alcalde Mil</h2>
             </div>
-            <div class="overflow-hidden">
-                <p class="text-xl text-[#f7f5e5] transform translate-y-full gallery-animate delay-300">Descubre cada rincón de Alcalde Mil</p>
+            <div class="mb-8">
+                <p class="text-xl text-[#f7f5e5]">Descubre cada rincón de Alcalde Mil y sus amenidades exclusivas diseñadas para tu comodidad y disfrute.</p>
             </div>
-            <div class="w-24 h-1 bg-gradient-to-r from-[#e2da92] to-[#f7f5e5] mx-auto mt-8 scale-x-0 gallery-line-animate"></div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 relative">
-            <!-- Terraza Nocturna (Movida al principio) -->
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-100">
-                <picture>
-                    <!-- Versión WebP -->
-                    <source srcset="assets/RENDERS ALCALDE MIL/TERRAZA NOCTURNA_2.webp" type="image/webp">
-                    <!-- Fallback JPG -->
-                    <img src="assets/RENDERS ALCALDE MIL/VISTA ROOF.webp" 
-                         alt="Terraza Nocturna Alcalde Mil" 
-                         class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
-                         loading="eager"
-                         fetchpriority="high"
-                         decoding="async"
-                         width="800"
-                         height="800" />
-                </picture>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
-                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Terraza Nocturna</h3>
-                        <p class="text-[#f7f5e5] text-sm">Un espacio mágico para tus noches</p>
-                    </div>
-                </div>
-            </div>
+            <img src="assets/RENDERS ALCALDE MIL/TERRAZA_NOCTURNA_1_OPT.webp" alt="Terraza Nocturna Alcalde Mil" class="rounded-2xl shadow-2xl w-full h-80 object-cover cursor-pointer opacity-0 translate-y-8 transition-all duration-1000 delay-100 hover:scale-105 transition-transform" id="gallery-img-1" loading="lazy" />
+            <img src="assets/RENDERS ALCALDE MIL/PATIO CENTRAL.webp" alt="Patio Central de Alcalde Mil" class="rounded-2xl shadow-2xl w-full h-80 object-cover cursor-pointer opacity-0 translate-y-8 transition-all duration-1000 delay-200 hover:scale-105 transition-transform" id="gallery-img-2" loading="lazy" />
+            <img src="assets/RENDERS ALCALDE MIL/COWORKING.webp" alt="Área de Coworking Alcalde Mil" class="rounded-2xl shadow-2xl w-full h-80 object-cover cursor-pointer opacity-0 translate-y-8 transition-all duration-1000 delay-300 hover:scale-105 transition-transform" id="gallery-img-3" loading="lazy" />
+            <img src="assets/RENDERS ALCALDE MIL/fachada_opt.webp" alt="Fachada Principal Alcalde Mil" class="rounded-2xl shadow-2xl w-full h-80 object-cover cursor-pointer opacity-0 translate-y-8 transition-all duration-1000 delay-400 hover:scale-105 transition-transform" id="gallery-img-4" loading="lazy" />
+            <img src="assets/RENDERS ALCALDE MIL/VISTA ROOF.webp" alt="Áreas Comunes Alcalde Mil" class="rounded-2xl shadow-2xl w-full h-80 object-cover cursor-pointer opacity-0 translate-y-8 transition-all duration-1000 delay-500 hover:scale-105 transition-transform" id="gallery-img-5" loading="lazy" />
+            <img src="assets/RENDERS ALCALDE MIL/GIMNASIO.webp" alt="Amenidades Alcalde Mil" class="rounded-2xl shadow-2xl w-full h-80 object-cover cursor-pointer opacity-0 translate-y-8 transition-all duration-1000 delay-600 hover:scale-105 transition-transform" id="gallery-img-6" loading="lazy" />
+        </div>
 
-            <!-- Resto de las imágenes -->
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-200">
-                <img src="assets/RENDERS ALCALDE MIL/PATIO CENTRAL.webp" 
-                     alt="Patio Central de Alcalde Mil" 
-                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
-                     loading="lazy"
-                     width="800"
-                     height="800" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
-                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Patio Central</h3>
-                        <p class="text-[#f7f5e5] text-sm">Un espacio de convivencia diseñado para ti</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Modal para imagen ampliada -->
+        <div id="gallery-modal" class="fixed inset-0 bg-black/90 flex items-center justify-center z-[9999] hidden">
+            <button id="gallery-modal-close" class="absolute top-6 right-6 text-white text-4xl font-bold bg-black/50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/80 transition-all duration-300 hover:scale-110" aria-label="Cerrar modal">&times;</button>
+            <img id="gallery-modal-img" src="" alt="Imagen ampliada" class="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl border-4 border-white object-contain" />
+        </div>
+    </section>
 
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-300">
-                <img src="assets/RENDERS ALCALDE MIL/COWORKING.webp" 
-                     alt="Área de Coworking Alcalde Mil" 
-                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
-                     loading="lazy"
-                     width="800"
-                     height="800" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
-                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Área de Coworking</h3>
-                        <p class="text-[#f7f5e5] text-sm">Espacios modernos para trabajar y crear</p>
-                    </div>
-                </div>
+    <!-- Amenities Section -->
+    <section class="bg-[#4c5473] py-36 px-6 flex flex-col items-center justify-center min-h-screen">
+        <h2 class="text-6xl md:text-8xl font-bold text-white text-center mb-20 tracking-wide opacity-0 -translate-y-10 transition-all duration-1000" id="amenities-title">6 AMENIDADES</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-20 gap-x-16 w-full max-w-6xl">
+            <!-- Juegos Infantiles -->
+            <div class="flex flex-col items-center group opacity-0 translate-y-8 transition-all duration-1000 delay-100" id="amenity-1">
+                <img src="assets/RENDERS ALCALDE MIL/icon-playground.svg" alt="Juegos Infantiles" class="w-28 h-28 mb-8" loading="lazy"/>
+                <span class="text-white text-3xl font-semibold text-center tracking-wide">JUEGOS INFANTILES</span>
             </div>
-
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-400">
-                <img src="assets/RENDERS ALCALDE MIL/fachada_opt.webp" 
-                     alt="Fachada Principal Alcalde Mil" 
-                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
-                     loading="lazy"
-                     width="800"
-                     height="800" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
-                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Fachada Principal</h3>
-                        <p class="text-[#f7f5e5] text-sm">Diseño arquitectónico de vanguardia</p>
-                    </div>
-                </div>
+            <!-- Coworking -->
+            <div class="flex flex-col items-center group opacity-0 translate-y-8 transition-all duration-1000 delay-200" id="amenity-2">
+                <img src="assets/RENDERS ALCALDE MIL/icon-coworking.svg" alt="Coworking" class="w-28 h-28 mb-8" loading="lazy"/>
+                <span class="text-white text-3xl font-semibold text-center tracking-wide">COWORKING</span>
             </div>
-
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-500">
-                <img src="assets/RENDERS ALCALDE MIL/TERRAZA_NOCTURNA_1_OPT.webp" 
-                     alt="Áreas Comunes Alcalde Mil" 
-                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
-                     loading="lazy"
-                     width="800"
-                     height="800" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
-                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Áreas Comunes</h3>
-                        <p class="text-[#f7f5e5] text-sm">Espacios diseñados para tu comodidad</p>
-                    </div>
-                </div>
+            <!-- Roof Garden -->
+            <div class="flex flex-col items-center group opacity-0 translate-y-8 transition-all duration-1000 delay-300" id="amenity-3">
+                <img src="assets/RENDERS ALCALDE MIL/icon-roof.svg" alt="Roof Garden" class="w-28 h-28 mb-8" loading="lazy"/>
+                <span class="text-white text-3xl font-semibold text-center tracking-wide">ROOF GARDEN</span>
             </div>
-
-            <div class="group relative aspect-square overflow-hidden rounded-2xl opacity-0 gallery-item-animate delay-600">
-                <img src="assets/RENDERS ALCALDE MIL/GIMNASIO.webp" 
-                     alt="Amenidades Alcalde Mil" 
-                     class="w-full h-full object-cover transition-all duration-[4000ms] ease-in-out group-hover:scale-110" 
-                     loading="lazy"
-                     width="800"
-                     height="800" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#4c5473]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-6 group-hover:translate-y-0 transition-transform duration-1000">
-                        <h3 class="text-[#e2da92] text-xl font-bold mb-2">Amenidades</h3>
-                        <p class="text-[#f7f5e5] text-sm">Lujo y confort en cada detalle</p>
-                    </div>
-                </div>
+            <!-- Zona Comercial -->
+            <div class="flex flex-col items-center group opacity-0 translate-y-8 transition-all duration-1000 delay-400" id="amenity-4">
+                <img src="assets/RENDERS ALCALDE MIL/icon-mall.svg" alt="Zona Comercial" class="w-28 h-28 mb-8" loading="lazy"/>
+                <span class="text-white text-3xl font-semibold text-center tracking-wide">ZONA COMERCIAL</span>
+            </div>
+            <!-- Gimnasio -->
+            <div class="flex flex-col items-center group opacity-0 translate-y-8 transition-all duration-1000 delay-500" id="amenity-5">
+                <img src="assets/RENDERS ALCALDE MIL/icon-gym.svg" alt="Gimnasio" class="w-28 h-28 mb-8" loading="lazy"/>
+                <span class="text-white text-3xl font-semibold text-center tracking-wide">GIMNASIO</span>
+            </div>
+            <!-- Zona de Lectura -->
+            <div class="flex flex-col items-center group opacity-0 translate-y-8 transition-all duration-1000 delay-600" id="amenity-6">
+                <img src="assets/RENDERS ALCALDE MIL/icon-reading.svg" alt="Zona de Lectura" class="w-28 h-28 mb-8" loading="lazy"/>
+                <span class="text-white text-3xl font-semibold text-center tracking-wide">ZONA DE LECTURA</span>
             </div>
         </div>
     </section>
+
+    <style>
+      @keyframes fade-in-up {
+        0% { opacity: 0; transform: translateY(32px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+      .delay-500 { animation-delay: 0.5s; }
+      .delay-600 { animation-delay: 0.6s; }
+    </style>
 
     <!-- Statistics Section -->
     <section id="estadisticas" class="bg-[#4c5473] min-h-screen flex items-center py-16 md:py-32 px-4 md:px-6 relative overflow-hidden">
@@ -539,15 +480,6 @@
                 </a>
             </div>
 
-            <!-- Grupo Casillas Logo -->
-            <a href="https://grupocasillas.mx/" target="_blank" rel="noopener noreferrer" class="inline-block">
-                <img 
-                    src="assets/LOGOS ALCALDE MIL/grupo-casillas-logo.png"
-                    alt="Grupo Casillas" 
-                    class="mx-auto w-20 sm:w-24 mb-1 hover:opacity-80 transition-opacity"
-                    loading="lazy"
-                >
-            </a>
 
             <!-- Copyright -->
             <div class="text-center text-sm text-[#4c5473] mb-1">

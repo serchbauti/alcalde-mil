@@ -27,39 +27,41 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
       threshold: 0.1
   };
 
-  // Observer principal para elementos generales
+  // Observer para animaciones de entrada
   const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
           if (entry.isIntersecting) {
-              entry.target.classList.add('opacity-100', 'translate-y-0');
-              entry.target.classList.remove('opacity-0', '-translate-y-10', '-translate-x-10', 'translate-x-10', 'translate-y-20');
-              
-              // Si es el texto animado, añade el contenido
-              if (entry.target.id === 'animated-text') {
-                  const lines = [
-                      "SU CERCANÍA CON",
-                      "EL CENTRO PASEO ALCALDE",
-                      "Y LA CONECTIVIDAD URBANA",
-                      "GRACIAS A LAS CICLOVÍAS",
-                      "TREN LIGERO Y TRANSPORTE LO HACEN UN ESPACIO IDEAL PARA TENER..."
-                  ];
-                  
+              if (entry.target.id === 'project-title' || 
+                  entry.target.id === 'project-desc-1' || 
+                  entry.target.id === 'project-desc-2' ||
+                  entry.target.id === 'integration-title' ||
+                  entry.target.id === 'integration-text' ||
+                  entry.target.id === 'amenities-title') {
+                  entry.target.classList.remove('opacity-0', '-translate-y-10');
+                  entry.target.classList.add('opacity-100', 'translate-y-0');
+              } else if (entry.target.id === 'animated-text') {
+                  entry.target.classList.remove('opacity-0', 'translate-y-20');
+                  entry.target.classList.add('opacity-100', 'translate-y-0');
+                  // Animar cada línea con un retraso
+                  const lines = entry.target.querySelectorAll('h2');
                   lines.forEach((line, index) => {
-                      const lineElement = entry.target.querySelector(`.line-${index + 1}`);
-                      if (lineElement) {
-                          lineElement.textContent = line;
-                          setTimeout(() => {
-                              lineElement.style.opacity = "1";
-                              lineElement.style.transform = "translateY(0)";
-                          }, index * 200);
-                      }
+                      setTimeout(() => {
+                          line.classList.add('animate-fade-in-up');
+                      }, index * 200);
                   });
+              } else if (entry.target.id.startsWith('gallery-img-')) {
+                  entry.target.classList.remove('opacity-0', 'translate-y-8');
+                  entry.target.classList.add('opacity-100', 'translate-y-0');
+              } else if (entry.target.id.startsWith('amenity-')) {
+                  entry.target.classList.remove('opacity-0', 'translate-y-8');
+                  entry.target.classList.add('opacity-100', 'translate-y-0');
               }
-              
-              observer.unobserve(entry.target);
           }
       });
-  }, observerOptions);
+  }, {
+      threshold: 0.1,
+      rootMargin: '0px'
+  });
 
   // Observer específico para la sección statement
   const statementObserver = new IntersectionObserver((entries) => {
@@ -84,12 +86,30 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
           'project-desc-1',
           'project-desc-2',
           'integration-title',
+          'integration-text',
+          'amenities-title',
           'animated-text'
       ].map(id => document.getElementById(id));
 
       projectElements.forEach(element => {
           if (element) {
               observer.observe(element);
+          }
+      });
+
+      // Gallery images
+      const galleryImages = Array.from({ length: 6 }, (_, i) => document.getElementById(`gallery-img-${i + 1}`));
+      galleryImages.forEach(img => {
+          if (img) {
+              observer.observe(img);
+          }
+      });
+
+      // Amenities items
+      const amenityItems = Array.from({ length: 6 }, (_, i) => document.getElementById(`amenity-${i + 1}`));
+      amenityItems.forEach(item => {
+          if (item) {
+              observer.observe(item);
           }
       });
 
@@ -163,6 +183,11 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
 
           observer.observe(mapImage);
       }
+
+      // Observar elementos
+      document.querySelectorAll('[id^="gallery-img-"]').forEach(el => {
+          observer.observe(el);
+      });
   });
 
   // Mobile menu toggle
@@ -228,4 +253,42 @@ const statsObserver = new IntersectionObserver((entries) => {
 }, {
     threshold: 0.3,
     rootMargin: '-50px'
+  });
+
+// Modal de galería
+const modal = document.getElementById('gallery-modal');
+const modalImg = document.getElementById('gallery-modal-img');
+const closeModal = document.getElementById('gallery-modal-close');
+
+// Agregar evento click a todas las imágenes de la galería
+document.querySelectorAll('[id^="gallery-img-"]').forEach(img => {
+    img.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        document.body.style.overflow = 'hidden'; // Prevenir scroll
+    });
 });
+
+// Cerrar modal al hacer click en el botón de cerrar
+closeModal.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = ''; // Restaurar scroll
+});
+
+// Cerrar modal al hacer click fuera de la imagen
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+});
+
+// Cerrar modal con la tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+});
+  

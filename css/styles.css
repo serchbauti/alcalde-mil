@@ -169,4 +169,47 @@ h1, h2, h3 {
 /* About Project Section */
 #about-project {
     background-image: url('../assets/RENDERS ALCALDE MIL/COWORKING.jpg');
+  }
+
+/* Gallery Animations */
+.gallery-title {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.gallery-title.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-subtitle {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out 0.3s;
+}
+
+.gallery-subtitle.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-line {
+    transform: scaleX(0);
+    transition: transform 1s ease-out 0.5s;
+}
+
+.gallery-line.active {
+    transform: scaleX(1);
+}
+
+.gallery-img {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.gallery-img.active {
+    opacity: 1;
+    transform: translateY(0);
 }
