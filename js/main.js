@@ -80,6 +80,12 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
 
   // Inicializar todos los observers cuando el DOM esté listo
   document.addEventListener('DOMContentLoaded', () => {
+      // Hero animations
+      const heroTitles = document.querySelectorAll('.hero-title');
+      heroTitles.forEach(title => {
+          title.classList.add('animate-fade-in-up');
+      });
+
       // Elementos del proyecto
       const projectElements = [
           'project-title',
