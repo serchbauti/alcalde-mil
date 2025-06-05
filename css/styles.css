@@ -213,3 +213,27 @@ h1, h2, h3 {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Statement Section Animations */
+.statement-enter {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all 0.7s ease-out;
+}
+
+.statement-enter.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.statement-delay-200 {
+    transition-delay: 200ms;
+}
+
+.statement-delay-400 {
+    transition-delay: 400ms;
+}
+
+.statement-delay-600 {
+    transition-delay: 600ms;
+}

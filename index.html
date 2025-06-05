@@ -177,17 +177,47 @@
     <!-- Statement Section -->
     <section class="bg-[#4c5473] min-h-screen flex items-center justify-center text-center px-4 py-16 md:py-32">
         <div id="statement-container" class="space-y-2 sm:space-y-4 md:space-y-6">
-            <h2 class="statement-line text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] font-bold">
+            <h2 class="statement-enter statement-delay-200 text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] font-bold">
                 TODO
             </h2>
-            <h2 class="statement-line text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold">
+            <h2 class="statement-enter statement-delay-400 text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-bold">
                 A TU
             </h2>
-            <h2 class="statement-line text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold">
+            <h2 class="statement-enter statement-delay-600 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold">
                 ALCANCE.
             </h2>
         </div>
     </section>
+
+    <script>
+        // Esperar a que el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Crear un nuevo IntersectionObserver
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Cuando la sección es visible, agregar la clase a cada título
+                            entry.target.querySelectorAll('h2').forEach(h2 => {
+                                h2.classList.add('opacity-100', 'translate-y-0');
+                            });
+                            // Dejar de observar después de la animación
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.2 // Activar cuando al menos 20% de la sección sea visible
+                }
+            );
+
+            // Empezar a observar el contenedor
+            const container = document.getElementById('statement-container');
+            if (container) {
+                observer.observe(container);
+            }
+        });
+    </script>
 
     <!-- Gallery Section con Modal y Animaciones -->
     <section id="conocenos" class="bg-[#4c5473] py-32 px-6 relative overflow-hidden">
@@ -255,18 +285,12 @@
 
     <style>
       @keyframes fade-in-up {
-        0% { opacity: 0; transform: translateY(32px); }
+        0% { opacity: 0; transform: translateY(20px); }
         100% { opacity: 1; transform: translateY(0); }
       }
       .animate-fade-in-up {
-        animation: fade-in-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation: fade-in-up 0.8s ease-out forwards;
       }
-      .delay-100 { animation-delay: 0.1s; }
-      .delay-200 { animation-delay: 0.2s; }
-      .delay-300 { animation-delay: 0.3s; }
-      .delay-400 { animation-delay: 0.4s; }
-      .delay-500 { animation-delay: 0.5s; }
-      .delay-600 { animation-delay: 0.6s; }
     </style>
 
     <!-- Statistics Section -->

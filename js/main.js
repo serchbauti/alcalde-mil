@@ -63,21 +63,6 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
       rootMargin: '0px'
   });
 
-  // Observer específico para la sección statement
-  const statementObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              const lines = entry.target.querySelectorAll('.statement-line');
-              lines.forEach(line => {
-                  line.classList.add('animate-statement');
-              });
-              statementObserver.unobserve(entry.target);
-          }
-      });
-  }, {
-      threshold: 0.2
-  });
-
   // Inicializar observadores cuando el DOM esté listo
   document.addEventListener('DOMContentLoaded', function() {
       // Hero animations
@@ -156,22 +141,6 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
                       });
                       observer.unobserve(target);
                   }
-
-                  // Statement section
-                  if (target.id === 'statement-container') {
-                      const lines = target.querySelectorAll('.statement-line');
-                      lines.forEach((line, index) => {
-                          setTimeout(() => {
-                              requestAnimationFrame(() => {
-                                  line.style.opacity = '1';
-                                  setTimeout(() => {
-                                      line.style.transform = 'translateY(0)';
-                                  }, 50);
-                              });
-                          }, index * 400);
-                      });
-                      observer.unobserve(target);
-                  }
               }
           });
       }, observerOptions);
@@ -201,10 +170,6 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
       // Observar texto animado
       const animatedText = document.getElementById('animated-text');
       if (animatedText) observer.observe(animatedText);
-
-      // Observar statement section
-      const statementContainer = document.getElementById('statement-container');
-      if (statementContainer) observer.observe(statementContainer);
 
       // Secciones de integración urbana
       const integration1 = document.getElementById('integration-1');
@@ -269,6 +234,12 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
           }, { threshold: 0.3 });
 
           observer.observe(mapImage);
+      }
+
+      // Statement section
+      const statementContainer = document.getElementById('statement-container');
+      if (statementContainer) {
+          statementObserver.observe(statementContainer);
       }
   });
 
@@ -373,4 +344,21 @@ document.addEventListener('keydown', (e) => {
         document.body.style.overflow = '';
     }
 });
+
+// Statement Section Observer
+const statementObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.statement-enter').forEach(el => {
+                    el.classList.add('is-visible');
+                });
+                statementObserver.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.2
+    }
+);
   
