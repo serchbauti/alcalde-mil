@@ -78,46 +78,133 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
       threshold: 0.2
   });
 
-  // Inicializar todos los observers cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', () => {
+  // Inicializar observadores cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', function() {
       // Hero animations
       const heroTitles = document.querySelectorAll('.hero-title');
       heroTitles.forEach(title => {
-          title.classList.add('animate-fade-in-up');
+          title.style.opacity = '1';
+          title.style.transform = 'translateY(0)';
       });
 
-      // Elementos del proyecto
-      const projectElements = [
-          'project-title',
-          'project-desc-1',
-          'project-desc-2',
-          'integration-title',
-          'integration-text',
-          'amenities-title',
-          'animated-text'
-      ].map(id => document.getElementById(id));
+      // Observer para animaciones de secciones
+      const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+      };
 
-      projectElements.forEach(element => {
-          if (element) {
-              observer.observe(element);
-          }
-      });
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  const target = entry.target;
+                  
+                  // Hero section
+                  if (target.classList.contains('hero-title')) {
+                      target.style.opacity = '1';
+                      target.style.transform = 'translateY(0)';
+                  }
+                  
+                  // About section
+                  if (target.id === 'project-title' || target.id === 'project-desc-1' || target.id === 'project-desc-2') {
+                      target.style.opacity = '1';
+                      target.style.transform = 'translateY(0)';
+                  }
+                  
+                  // Integration section
+                  if (target.id === 'integration-title' || target.id === 'integration-text') {
+                      target.style.opacity = '1';
+                      target.style.transform = 'translateY(0)';
+                  }
+                  
+                  // Gallery section
+                  if (target.id === 'gallery-title' || target.id === 'gallery-subtitle') {
+                      target.style.opacity = '1';
+                      target.style.transform = 'translateY(0)';
+                  }
+                  
+                  // Gallery images
+                  if (target.id.startsWith('gallery-img-')) {
+                      target.style.opacity = '1';
+                      target.style.transform = 'translateY(0)';
+                  }
+                  
+                  // Amenities section
+                  if (target.id === 'amenities-title') {
+                      target.style.opacity = '1';
+                      target.style.transform = 'translateY(0)';
+                  }
+                  
+                  // Amenity items
+                  if (target.id.startsWith('amenity-')) {
+                      target.style.opacity = '1';
+                      target.style.transform = 'translateY(0)';
+                  }
 
-      // Gallery images
-      const galleryImages = Array.from({ length: 6 }, (_, i) => document.getElementById(`gallery-img-${i + 1}`));
-      galleryImages.forEach(img => {
-          if (img) {
-              observer.observe(img);
-          }
-      });
+                  // Animated text section
+                  if (target.id === 'animated-text') {
+                      const lines = target.querySelectorAll('[class*="line-"]');
+                      lines.forEach((line, index) => {
+                          setTimeout(() => {
+                              requestAnimationFrame(() => {
+                                  line.style.opacity = '1';
+                                  setTimeout(() => {
+                                      line.style.transform = 'translateY(0)';
+                                  }, 50);
+                              });
+                          }, index * 300);
+                      });
+                      observer.unobserve(target);
+                  }
 
-      // Amenities items
-      const amenityItems = Array.from({ length: 6 }, (_, i) => document.getElementById(`amenity-${i + 1}`));
-      amenityItems.forEach(item => {
-          if (item) {
-              observer.observe(item);
-          }
-      });
+                  // Statement section
+                  if (target.id === 'statement-container') {
+                      const lines = target.querySelectorAll('.statement-line');
+                      lines.forEach((line, index) => {
+                          setTimeout(() => {
+                              requestAnimationFrame(() => {
+                                  line.style.opacity = '1';
+                                  setTimeout(() => {
+                                      line.style.transform = 'translateY(0)';
+                                  }, 50);
+                              });
+                          }, index * 400);
+                      });
+                      observer.unobserve(target);
+                  }
+              }
+          });
+      }, observerOptions);
+
+      // Observar elementos del hero
+      heroTitles.forEach(title => observer.observe(title));
+
+      // Observar elementos de About
+      const aboutElements = document.querySelectorAll('#project-title, #project-desc-1, #project-desc-2');
+      aboutElements.forEach(el => observer.observe(el));
+
+      // Observar elementos de integración urbana
+      const integrationElements = document.querySelectorAll('#integration-title, #integration-text');
+      integrationElements.forEach(el => observer.observe(el));
+
+      // Observar elementos de la galería
+      const galleryElements = document.querySelectorAll('#gallery-title, #gallery-subtitle, [id^="gallery-img-"]');
+      galleryElements.forEach(el => observer.observe(el));
+
+      // Observar elementos de amenidades
+      const amenitiesTitle = document.getElementById('amenities-title');
+      if (amenitiesTitle) observer.observe(amenitiesTitle);
+
+      const amenityItems = document.querySelectorAll('[id^="amenity-"]');
+      amenityItems.forEach(item => observer.observe(item));
+
+      // Observar texto animado
+      const animatedText = document.getElementById('animated-text');
+      if (animatedText) observer.observe(animatedText);
+
+      // Observar statement section
+      const statementContainer = document.getElementById('statement-container');
+      if (statementContainer) observer.observe(statementContainer);
 
       // Secciones de integración urbana
       const integration1 = document.getElementById('integration-1');
@@ -129,12 +216,6 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
 
       if (integration2) {
           Array.from(integration2.children).forEach(child => observer.observe(child));
-      }
-
-      // Sección statement
-      const statementContainer = document.getElementById('statement-container');
-      if (statementContainer) {
-          statementObserver.observe(statementContainer);
       }
 
       // Animaciones de la galería al hacer scroll
@@ -189,11 +270,6 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
 
           observer.observe(mapImage);
       }
-
-      // Observar elementos
-      document.querySelectorAll('[id^="gallery-img-"]').forEach(el => {
-          observer.observe(el);
-      });
   });
 
   // Mobile menu toggle
