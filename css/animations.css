@@ -87,10 +87,30 @@
         transform: translateY(0);
       }
 
+/* Base animation classes */
+.opacity-0 {
+    opacity: 0;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+.translate-y-0 {
+    transform: translateY(0);
+}
+
+.translate-y-10 {
+    transform: translateY(2.5rem);
+}
+
+/* Animated text section */
 #animated-text h2 {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease-out;
+    transform: translateY(2.5rem);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
 }
 
 #animated-text h2.line-1 {
@@ -111,6 +131,13 @@
 
 #animated-text h2.line-5 {
     transition-delay: 1s;
+}
+
+/* Transition classes */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 1000ms;
 }
 
 @keyframes reveal-zoom-blur {
@@ -390,7 +417,8 @@
 
 .hero-title {
     opacity: 0;
-    animation: hero-text-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transform: translateY(-2.5rem);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-title-delay-1 {
@@ -404,4 +432,42 @@
 .hero-title-delay-3 {
     animation-delay: 0.9s;
 }
- 
+
+/* Statement section animations */
+.statement-enter {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all 0.7s ease-out;
+}
+
+.statement-enter.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Gallery animations */
+.gallery-img {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 1s ease-out;
+}
+
+/* Map animation */
+.map-svg {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.map-svg.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Delay utilities */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; } 

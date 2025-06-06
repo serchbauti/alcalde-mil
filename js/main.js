@@ -65,6 +65,25 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
 
   // Inicializar observadores cuando el DOM esté listo
   document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+              e.preventDefault();
+              document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+              const menu = document.getElementById('mobile-menu');
+              if (menu) menu.classList.add('hidden');
+          });
+      });
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuToggle && mobileMenu) {
+          menuToggle.addEventListener('click', () => {
+              mobileMenu.classList.toggle('hidden');
+          });
+      }
+
       // Hero animations
       const heroTitles = document.querySelectorAll('.hero-title');
       heroTitles.forEach(title => {
@@ -72,183 +91,120 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
           title.style.transform = 'translateY(0)';
       });
 
-      // Observer para animaciones de secciones
-      const observerOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1
-      };
-
+      // Main animation observer
       const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
               if (entry.isIntersecting) {
                   const target = entry.target;
                   
-                  // Hero section
+                  // Animated text section
+                  if (target.id === 'animated-text') {
+                      const lines = target.querySelectorAll('h2');
+                      lines.forEach((line, index) => {
+                          setTimeout(() => {
+                              line.style.opacity = '1';
+                              line.style.transform = 'translateY(0)';
+                          }, index * 200);
+                      });
+                  }
+                  
+                  // Other sections...
                   if (target.classList.contains('hero-title')) {
                       target.style.opacity = '1';
                       target.style.transform = 'translateY(0)';
                   }
                   
-                  // About section
-                  if (target.id === 'project-title' || target.id === 'project-desc-1' || target.id === 'project-desc-2') {
-                      target.style.opacity = '1';
-                      target.style.transform = 'translateY(0)';
+                  if (target.id === 'project-title' || 
+                      target.id === 'project-desc-1' || 
+                      target.id === 'project-desc-2') {
+                      target.classList.remove('opacity-0', '-translate-y-10');
+                      target.classList.add('opacity-100', 'translate-y-0');
                   }
                   
-                  // Integration section
-                  if (target.id === 'integration-title' || target.id === 'integration-text') {
-                      target.style.opacity = '1';
-                      target.style.transform = 'translateY(0)';
+                  if (target.id === 'integration-title' || 
+                      target.id === 'integration-text') {
+                      target.classList.remove('opacity-0', '-translate-y-10');
+                      target.classList.add('opacity-100', 'translate-y-0');
                   }
                   
-                  // Gallery section
-                  if (target.id === 'gallery-title' || target.id === 'gallery-subtitle') {
-                      target.style.opacity = '1';
-                      target.style.transform = 'translateY(0)';
-                  }
-                  
-                  // Gallery images
                   if (target.id.startsWith('gallery-img-')) {
-                      target.style.opacity = '1';
-                      target.style.transform = 'translateY(0)';
+                      target.classList.remove('opacity-0', 'translate-y-8');
+                      target.classList.add('opacity-100', 'translate-y-0');
                   }
                   
-                  // Amenities section
                   if (target.id === 'amenities-title') {
-                      target.style.opacity = '1';
-                      target.style.transform = 'translateY(0)';
+                      target.classList.remove('opacity-0', '-translate-y-10');
+                      target.classList.add('opacity-100', 'translate-y-0');
                   }
                   
-                  // Amenity items
                   if (target.id.startsWith('amenity-')) {
-                      target.style.opacity = '1';
-                      target.style.transform = 'translateY(0)';
+                      target.classList.remove('opacity-0', 'translate-y-8');
+                      target.classList.add('opacity-100', 'translate-y-0');
                   }
 
-                  // Animated text section
-                  if (target.id === 'animated-text') {
-                      const lines = target.querySelectorAll('[class*="line-"]');
-                      lines.forEach((line, index) => {
-                          setTimeout(() => {
-                              requestAnimationFrame(() => {
-                                  line.style.opacity = '1';
-                                  setTimeout(() => {
-                                      line.style.transform = 'translateY(0)';
-                                  }, 50);
-                              });
-                          }, index * 300);
+                  if (target.id === 'statement-container') {
+                      target.querySelectorAll('.statement-enter').forEach(el => {
+                          el.classList.add('is-visible');
                       });
-                      observer.unobserve(target);
                   }
-              }
-          });
-      }, observerOptions);
 
-      // Observar elementos del hero
-      heroTitles.forEach(title => observer.observe(title));
-
-      // Observar elementos de About
-      const aboutElements = document.querySelectorAll('#project-title, #project-desc-1, #project-desc-2');
-      aboutElements.forEach(el => observer.observe(el));
-
-      // Observar elementos de integración urbana
-      const integrationElements = document.querySelectorAll('#integration-title, #integration-text');
-      integrationElements.forEach(el => observer.observe(el));
-
-      // Observar elementos de la galería
-      const galleryElements = document.querySelectorAll('#gallery-title, #gallery-subtitle, [id^="gallery-img-"]');
-      galleryElements.forEach(el => observer.observe(el));
-
-      // Observar elementos de amenidades
-      const amenitiesTitle = document.getElementById('amenities-title');
-      if (amenitiesTitle) observer.observe(amenitiesTitle);
-
-      const amenityItems = document.querySelectorAll('[id^="amenity-"]');
-      amenityItems.forEach(item => observer.observe(item));
-
-      // Observar texto animado
-      const animatedText = document.getElementById('animated-text');
-      if (animatedText) observer.observe(animatedText);
-
-      // Secciones de integración urbana
-      const integration1 = document.getElementById('integration-1');
-      const integration2 = document.getElementById('integration-2');
-
-      if (integration1) {
-          Array.from(integration1.children).forEach(child => observer.observe(child));
-      }
-
-      if (integration2) {
-          Array.from(integration2.children).forEach(child => observer.observe(child));
-      }
-
-      // Animaciones de la galería al hacer scroll
-      const galleryObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  // Activar animaciones del título y subtítulo
-                  entry.target.querySelectorAll('.gallery-animate').forEach(el => {
-                      el.classList.add('active');
-                  });
-
-                  // Activar animación de la línea
-                  entry.target.querySelector('.gallery-line-animate').classList.add('active');
-
-                  // Activar animaciones de los items de la galería
-                  entry.target.querySelectorAll('.gallery-item-animate').forEach(el => {
-                      el.classList.add('active');
-                  });
-
-                  // Dejar de observar una vez que se han activado las animaciones
-                  galleryObserver.unobserve(entry.target);
+                  if (target.id === 'estadisticas') {
+                      target.querySelectorAll('.stats-item').forEach(item => {
+                          item.classList.remove('opacity-0', 'translate-y-10');
+                          item.classList.add('opacity-100', 'translate-y-0');
+                      });
+                  }
               }
           });
       }, {
-          threshold: 0.2 // Activar cuando el 20% de la sección sea visible
+          threshold: 0.1,
+          rootMargin: '-50px'
       });
 
-      // Observar la sección de galería
-      const gallerySection = document.querySelector('#galeria');
-      if (gallerySection) {
-          galleryObserver.observe(gallerySection);
-      }
+      // Observe all animated elements
+      const animatedElements = [
+          ...document.querySelectorAll('.hero-title'),
+          ...document.querySelectorAll('#project-title, #project-desc-1, #project-desc-2'),
+          ...document.querySelectorAll('#integration-title, #integration-text'),
+          ...document.querySelectorAll('[id^="gallery-img-"]'),
+          ...document.querySelectorAll('#amenities-title'),
+          ...document.querySelectorAll('[id^="amenity-"]'),
+          ...document.querySelectorAll('#animated-text'),
+          ...document.querySelectorAll('#statement-container'),
+          ...document.querySelectorAll('#estadisticas')
+      ];
 
-      // Observar sección de estadísticas
-      const statsSection = document.getElementById('estadisticas');
-      if (statsSection) {
-          statsObserver.observe(statsSection);
-      }
+      animatedElements.forEach(el => {
+          if (el) observer.observe(el);
+      });
 
-      // Map animation
-      const mapImage = document.querySelector('.map-svg');
-      if (mapImage) {
-          // Create intersection observer for map
-          const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                      mapImage.classList.add('loaded');
-                      observer.unobserve(entry.target);
-                  }
+      // Gallery modal functionality
+      const modal = document.getElementById('gallery-modal');
+      const modalImg = document.getElementById('gallery-modal-img');
+      const closeModal = document.getElementById('gallery-modal-close');
+
+      if (modal && modalImg && closeModal) {
+          document.querySelectorAll('[id^="gallery-img-"]').forEach(img => {
+              img.addEventListener('click', () => {
+                  modal.classList.remove('hidden');
+                  modalImg.src = img.src;
+                  modalImg.alt = img.alt;
+                  document.body.style.overflow = 'hidden';
               });
-          }, { threshold: 0.3 });
+          });
 
-          observer.observe(mapImage);
+          closeModal.addEventListener('click', () => {
+              modal.classList.add('hidden');
+              document.body.style.overflow = '';
+          });
+
+          modal.addEventListener('click', (e) => {
+              if (e.target === modal) {
+                  modal.classList.add('hidden');
+                  document.body.style.overflow = '';
+              }
+          });
       }
-
-      // Statement section
-      const statementContainer = document.getElementById('statement-container');
-      if (statementContainer) {
-          statementObserver.observe(statementContainer);
-      }
-  });
-
-  // Mobile menu toggle
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
   });
   
   // Slide-in animation al hacer scroll
@@ -308,57 +264,19 @@ const statsObserver = new IntersectionObserver((entries) => {
     rootMargin: '-50px'
   });
 
-// Modal de galería
-const modal = document.getElementById('gallery-modal');
-const modalImg = document.getElementById('gallery-modal-img');
-const closeModal = document.getElementById('gallery-modal-close');
-
-// Agregar evento click a todas las imágenes de la galería
-document.querySelectorAll('[id^="gallery-img-"]').forEach(img => {
-    img.addEventListener('click', () => {
-        modal.classList.remove('hidden');
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        document.body.style.overflow = 'hidden'; // Prevenir scroll
-    });
-});
-
-// Cerrar modal al hacer click en el botón de cerrar
-closeModal.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    document.body.style.overflow = ''; // Restaurar scroll
-});
-
-// Cerrar modal al hacer click fuera de la imagen
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
-    }
-});
-
-// Cerrar modal con la tecla ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
-    }
-});
-
-// Statement Section Observer
-const statementObserver = new IntersectionObserver(
-    (entries) => {
+// Map animation
+const mapImage = document.querySelector('.map-svg');
+if (mapImage) {
+    // Create intersection observer for map
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.querySelectorAll('.statement-enter').forEach(el => {
-                    el.classList.add('is-visible');
-                });
-                statementObserver.unobserve(entry.target);
+                mapImage.classList.add('loaded');
+                observer.unobserve(entry.target);
             }
         });
-    },
-    {
-        threshold: 0.2
-    }
-);
+    }, { threshold: 0.3 });
+
+    observer.observe(mapImage);
+}
   
