@@ -375,7 +375,16 @@
                     <p class="text-lg text-[#4c5473] font-medium">Déjanos tus datos y recibe información exclusiva sobre precios y disponibilidad</p>
                 </div>
 
-                <form class="space-y-4" id="leadForm">
+                <form class="space-y-4" id="leadForm" action="https://formsubmit.co/serchcode@gmail.com" method="POST">
+                    <!-- Honeypot para evitar spam -->
+                    <input type="text" name="_honey" style="display:none">
+                    
+                    <!-- Deshabilitar captcha -->
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <!-- Redirección después del envío -->
+                    <input type="hidden" name="_next" value="https://symphonious-beijinho-e0ff6c.netlify.app/">
+                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Name field -->
                         <div class="relative">
@@ -474,16 +483,16 @@
             <!-- Legal links -->
             <nav class="grid grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto gap-y-2 font-medium text-lg md:text-xl text-[#4c5473] mb-8" aria-label="Legal links">
                 <div class="flex justify-center items-center">
-                    <a href="#" class="hover:underline whitespace-nowrap">AVISO DE PRIVACIDAD</a>
+                    <a href="assets/pdf/aviso-de-privacidad-grupo-casillas.pdf" target="_blank" rel="noopener noreferrer" class="hover:underline whitespace-nowrap">AVISO DE PRIVACIDAD</a>
                 </div>
                 <div class="flex justify-center items-center">
-                    <a href="#" class="hover:underline whitespace-nowrap">CONTRATO PROFECO</a>
+                    <a href="assets/pdf/contrato-profeco-grupo-casillas.pdf" target="_blank" rel="noopener noreferrer" class="hover:underline whitespace-nowrap">CONTRATO PROFECO</a>
                 </div>
                 <div class="flex justify-center items-center">
-                    <a href="#" class="hover:underline whitespace-nowrap">CARTA DERECHOS CONSUMIDOR</a>
+                    <a href="assets/pdf/carta-derechosconsumidor-grupo-casillas.pdf" target="_blank" rel="noopener noreferrer" class="hover:underline whitespace-nowrap">CARTA DERECHOS CONSUMIDOR</a>
                 </div>
                 <div class="flex justify-center items-center">
-                    <a href="#" class="hover:underline whitespace-nowrap">CARTA NO DISCRIMINACIÓN</a>
+                    <a href="assets/pdf/carta-no-discriminacion-grupocasillas.pdf" target="_blank" rel="noopener noreferrer" class="hover:underline whitespace-nowrap">CARTA NO DISCRIMINACIÓN</a>
                 </div>
             </nav>
 

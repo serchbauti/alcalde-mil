@@ -279,4 +279,16 @@ if (mapImage) {
 
     observer.observe(mapImage);
 }
+
+// Manejar el envío del formulario
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+    // Mostrar mensaje de carga
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerHTML;
+    submitButton.innerHTML = '<span>Enviando...</span>';
+    submitButton.disabled = true;
+
+    // El formulario se enviará automáticamente a FormSubmit.co
+    // No necesitamos prevenir el comportamiento por defecto
+});
   
