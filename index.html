@@ -538,13 +538,16 @@
                 method: 'POST',
                 body: formData
             })
-            .then(() => {
-                window.location.href = 'https://grupo4c.com.mx/alcalde-mil-master/';
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'https://grupo4c.com.mx/alcalde-mil-master/';
+                } else {
+                    throw new Error('Error en el envío');
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
-                // Si hay error, intentamos el envío normal del formulario
-                form.submit();
+                alert('Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
             });
         }
     </script>
