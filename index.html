@@ -161,19 +161,6 @@
         </div>
     </section>
 
-    <!-- Animated Text Section -->
-    <section class="bg-[#4c5473] text-[#e2da92] py-16 md:py-32 min-h-screen flex items-center justify-center text-center overflow-hidden px-4">
-        <div class="max-w-6xl mx-auto">
-            <div id="animated-text" class="space-y-4 md:space-y-6">
-                <h2 class="line-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none" style="opacity: 0; transform: translateY(2.5rem);">Su cercanía con el centro</h2>
-                <h2 class="line-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-none" style="opacity: 0; transform: translateY(2.5rem);">paseo alcalde y la conectividad</h2>
-                <h2 class="line-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-none" style="opacity: 0; transform: translateY(2.5rem);">urbana gracias a las ciclovías</h2>
-                <h2 class="line-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-none" style="opacity: 0; transform: translateY(2.5rem);">tren ligero y transporte</h2>
-                <h2 class="line-5 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-none" style="opacity: 0; transform: translateY(2.5rem);">lo hacen un espacio ideal para tener...</h2>
-            </div>
-        </div>
-    </section>
-
     <!-- Statement Section -->
     <section class="bg-[#4c5473] min-h-screen flex items-center justify-center text-center px-4 py-16 md:py-32">
         <div id="statement-container" class="space-y-2 sm:space-y-4 md:space-y-6">
@@ -375,7 +362,7 @@
                     <p class="text-lg text-[#4c5473] font-medium">Déjanos tus datos y recibe información exclusiva sobre precios y disponibilidad</p>
                 </div>
 
-                <form class="space-y-4" id="leadForm" action="https://formsubmit.co/landing@grupo4c.com.mx" method="POST">
+                <form class="space-y-4" id="leadForm" action="https://formsubmit.co/landing@grupo4c.com.mx" method="POST" onsubmit="handleSubmit(event)">
                     <!-- Honeypot para evitar spam -->
                     <input type="text" name="_honey" style="display:none">
                     
@@ -383,7 +370,10 @@
                     <input type="hidden" name="_captcha" value="false">
                     
                     <!-- Redirección después del envío -->
-                    <input type="hidden" name="_next" value="https://symphonious-beijinho-e0ff6c.netlify.app/">
+                    <input type="hidden" name="_next" value="https://grupo4c.com.mx/alcalde-mil-master/">
+                    
+                    <!-- Mensaje de éxito personalizado -->
+                    <input type="hidden" name="_success" value="Gracias por tu interés en Alcalde Mil. Nos pondremos en contacto contigo pronto.">
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Name field -->
@@ -538,5 +528,25 @@
     <!-- External Scripts -->
     <script src="js/main.js"></script>
     <script src="js/progressive-images.js"></script>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(() => {
+                window.location.href = 'https://grupo4c.com.mx/alcalde-mil-master/';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Si hay error, intentamos el envío normal del formulario
+                form.submit();
+            });
+        }
+    </script>
 </body>
 </html>
