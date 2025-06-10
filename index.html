@@ -362,7 +362,7 @@
                     <p class="text-lg text-[#4c5473] font-medium">Déjanos tus datos y recibe información exclusiva sobre precios y disponibilidad</p>
                 </div>
 
-                <form class="space-y-4" id="leadForm" action="https://formsubmit.co/ajax/serchcode@gmail.com" method="POST">
+                <form class="space-y-4" id="leadForm" action="https://formsubmit.co/ajax/serchcode@gmail.com" method="POST" onsubmit="return false;">
                     <!-- Redirección después del envío -->
                     <input type="hidden" name="_next" value="https://symphonious-beijinho-e0ff6c.netlify.app/">
                     
@@ -527,5 +527,28 @@
     <!-- External Scripts -->
     <script src="js/main.js"></script>
     <script src="js/progressive-images.js"></script>
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    window.location.href = 'https://symphonious-beijinho-e0ff6c.netlify.app/';
+                }
+            })
+            .catch(() => {
+                submitButton.disabled = false;
+            });
+        });
+    </script>
 </body>
 </html>
