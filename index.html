@@ -362,19 +362,17 @@
                     <p class="text-lg text-[#4c5473] font-medium">Déjanos tus datos y recibe información exclusiva sobre precios y disponibilidad</p>
                 </div>
 
-                <form class="space-y-4" id="leadForm" action="https://formsubmit.co/serchcode@gmail.com" method="POST" onsubmit="handleSubmit(event)">
-                    <!-- Honeypot para evitar spam -->
-                    <input type="text" name="_honey" style="display:none">
+                <form class="space-y-4" id="leadForm" action="https://formsubmit.co/serchcode@gmail.com" method="POST">
+                    <!-- Redirección después del envío -->
+                    <input type="hidden" name="_next" value="https://symphonious-beijinho-e0ff6c.netlify.app/">
                     
                     <!-- Deshabilitar captcha -->
                     <input type="hidden" name="_captcha" value="false">
                     
-                    <!-- Redirección después del envío -->
-                    <input type="hidden" name="_next" value="https://grupo4c.com.mx/alcalde-mil-master/">
+                    <!-- Evitar doble envío -->
+                    <input type="hidden" name="_autoresponse" value="Gracias por tu interés en Alcalde Mil. Nos pondremos en contacto contigo pronto.">
                     
-                    <!-- Mensaje de éxito personalizado -->
-                    <input type="hidden" name="_success" value="Gracias por tu interés en Alcalde Mil. Nos pondremos en contacto contigo pronto.">
-                    
+                    <!-- Campos del formulario -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Name field -->
                         <div class="relative">
@@ -528,20 +526,5 @@
     <!-- External Scripts -->
     <script src="js/main.js"></script>
     <script src="js/progressive-images.js"></script>
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            fetch(form.action, {
-                method: 'POST',
-                body: formData
-            })
-            .then(() => {
-                window.location.href = 'https://grupo4c.com.mx/alcalde-mil-master/';
-            });
-        }
-    </script>
 </body>
 </html>
