@@ -230,7 +230,23 @@
         <!-- Modal para imagen ampliada -->
         <div id="gallery-modal" class="fixed inset-0 bg-black/90 flex items-center justify-center z-[9999] hidden">
             <button id="gallery-modal-close" class="absolute top-6 right-6 text-white text-4xl font-bold bg-black/50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/80 transition-all duration-300 hover:scale-110" aria-label="Cerrar modal">&times;</button>
+            
+            <!-- Flecha izquierda -->
+            <button id="gallery-modal-prev" class="absolute left-6 text-white text-4xl font-bold bg-black/50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/80 transition-all duration-300 hover:scale-110" aria-label="Imagen anterior">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            
+            <!-- Imagen -->
             <img id="gallery-modal-img" src="" alt="Imagen ampliada" class="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl border-4 border-white object-contain" />
+            
+            <!-- Flecha derecha -->
+            <button id="gallery-modal-next" class="absolute right-6 text-white text-4xl font-bold bg-black/50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/80 transition-all duration-300 hover:scale-110" aria-label="Siguiente imagen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
         </div>
     </section>
 
@@ -518,6 +534,7 @@
     <!-- External Scripts -->
     <script src="js/main.js"></script>
     <script src="js/progressive-images.js"></script>
+    <script src="js/gallery.js"></script>
     <script>
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
