@@ -237,6 +237,98 @@ action="https://formsubmit.co/ajax/landing@grupo4c.com.mx"
 - Modelo 1 recámara: 46 m²
 - Modelo 2 recámaras: 70 m²
 
+## 📧 Configuración de FormSubmit
+
+### Configuración Actual
+El formulario está configurado para enviar los leads a través de FormSubmit con las siguientes configuraciones:
+
+```html
+<form class="space-y-4" id="leadForm" action="https://formsubmit.co/ajax/landing@grupo4c.com.mx" method="POST" onsubmit="return false;">
+    <!-- Redirección después del envío -->
+    <input type="hidden" name="_next" value="https://grupo4c.com.mx/alcalde-mil-master/">
+    
+    <!-- Deshabilitar captcha -->
+    <input type="hidden" name="_captcha" value="false">
+    
+    <!-- Evitar mensaje intermedio -->
+    <input type="hidden" name="_autoresponse" value="Gracias por tu interés en Alcalde Mil. Nos pondremos en contacto contigo pronto.">
+    <input type="hidden" name="_template" value="table">
+</form>
+```
+
+### Campos del Formulario
+1. **Nombre completo** (`nombre`) - Campo requerido
+2. **WhatsApp** (`telefono`) - Campo requerido, formato: 10 dígitos
+3. **Correo electrónico** (`email`) - Campo requerido
+4. **Interés** (`interes`) - Selector con opciones:
+   - Invertir
+   - Vivir
+   - Más información
+5. **Términos y condiciones** (`terminos`) - Checkbox requerido
+
+### Personalización de FormSubmit
+
+#### Cambiar Email de Destino
+```html
+<!-- Cambiar landing@grupo4c.com.mx por el email deseado -->
+action="https://formsubmit.co/ajax/tu-email@dominio.com"
+```
+
+#### Cambiar Página de Redirección
+```html
+<!-- Cambiar la URL de redirección después del envío -->
+<input type="hidden" name="_next" value="https://tu-dominio.com/gracias">
+```
+
+#### Configurar Respuesta Automática
+```html
+<!-- Personalizar el mensaje de respuesta automática -->
+<input type="hidden" name="_autoresponse" value="Tu mensaje personalizado aquí">
+```
+
+#### Habilitar/Deshabilitar Captcha
+```html
+<!-- Para habilitar captcha -->
+<input type="hidden" name="_captcha" value="true">
+
+<!-- Para deshabilitar captcha (actual) -->
+<input type="hidden" name="_captcha" value="false">
+```
+
+#### Configurar Plantilla de Email
+```html
+<!-- Usar plantilla de tabla (actual) -->
+<input type="hidden" name="_template" value="table">
+
+<!-- O usar plantilla básica -->
+<input type="hidden" name="_template" value="basic">
+```
+
+### Procesamiento JavaScript
+```javascript
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const formData = new FormData(form);
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            window.location.href = 'https://grupo4c.com.mx/alcalde-mil-master/';
+        }
+    })
+    .catch(() => {
+        submitButton.disabled = false;
+    });
+});
+```
+
 ## 🚀 Instalación y Deployment
 
 ### Desarrollo Local
@@ -368,6 +460,12 @@ X-Content-Type-Options = "nosniff"
 - **Ubicación**: Centro de Guadalajara, México
 - **Teléfono**: 332 796 7023
 - **WhatsApp**: +52 33 2796 7023
+
+### 👨‍💻 Soporte Técnico - Desarrollador
+- **Nombre**: Sergio Pérez Bautista
+- **Email**: perez.sergiob@gmail.com
+- **Teléfono**: 771 105 6030
+- **Especialidad**: Desarrollo Web Frontend, Optimización de Performance, SEO
 
 ### Enlaces Importantes
 - [Sitio Web Grupo Casillas](https://grupocasillas.mx/)
