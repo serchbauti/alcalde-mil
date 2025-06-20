@@ -115,6 +115,316 @@ alcalde-mil/
 }
 ```
 
+## 🔤 Configuración de Fuentes
+
+### Fuentes Actuales
+
+El sitio utiliza Google Fonts con las siguientes fuentes:
+
+#### Fuentes Principales
+```html
+<!-- En el head del HTML -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+```
+
+#### Variables CSS
+```css
+:root {
+    --font-primary: 'Work Sans', sans-serif;
+    --font-heading: 'Libre Baskerville', serif;
+}
+```
+
+### Configuración por Elemento
+
+#### Títulos y Encabezados
+```css
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    /* Libre Baskerville - Serif elegante */
+}
+
+/* Títulos principales */
+.hero-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 4rem; /* Responsive */
+}
+```
+
+#### Texto del Cuerpo
+```css
+body {
+    font-family: var(--font-primary);
+    /* Work Sans - Sans-serif moderno */
+}
+
+p, span, div {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
+```
+
+#### Navegación
+```css
+nav a {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+```
+
+### Personalización de Fuentes
+
+#### Cambiar Fuente Principal
+```html
+<!-- Reemplazar en index.html -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+```
+
+```css
+/* Actualizar en css/styles.css */
+:root {
+    --font-primary: 'Inter', sans-serif;
+}
+```
+
+#### Cambiar Fuente de Títulos
+```html
+<!-- Reemplazar en index.html -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+```
+
+```css
+/* Actualizar en css/styles.css */
+:root {
+    --font-heading: 'Playfair Display', serif;
+}
+```
+
+#### Agregar Nueva Fuente
+```html
+<!-- Agregar en index.html -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+```
+
+```css
+/* Agregar en css/styles.css */
+:root {
+    --font-secondary: 'Montserrat', sans-serif;
+}
+
+/* Usar la nueva fuente */
+.special-text {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+}
+```
+
+### Fuentes Alternativas Recomendadas
+
+#### Para Títulos (Serif)
+- **Playfair Display**: Elegante y moderno
+- **Merriweather**: Legible y profesional
+- **Lora**: Suave y refinado
+- **Crimson Text**: Clásico y elegante
+
+#### Para Texto (Sans-serif)
+- **Inter**: Moderno y altamente legible
+- **Open Sans**: Limpio y profesional
+- **Roboto**: Google Material Design
+- **Source Sans Pro**: Adobe, muy legible
+
+#### Para Navegación (Display)
+- **Montserrat**: Moderno y geométrico
+- **Raleway**: Elegante y espaciado
+- **Poppins**: Amigable y moderno
+- **Nunito**: Redondeado y amigable
+
+### Configuración Responsiva
+
+#### Tamaños de Fuente
+```css
+/* Títulos principales */
+.hero-title {
+    font-size: clamp(2rem, 8vw, 8rem);
+    line-height: 1.2;
+}
+
+/* Subtítulos */
+.subtitle {
+    font-size: clamp(1.5rem, 4vw, 4rem);
+    line-height: 1.3;
+}
+
+/* Texto del cuerpo */
+body {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+}
+
+/* Texto pequeño */
+.small-text {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.5;
+}
+```
+
+#### Breakpoints de Fuente
+```css
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    body {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    body {
+        font-size: 1.125rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .hero-title {
+        font-size: 6rem;
+    }
+    
+    body {
+        font-size: 1.25rem;
+    }
+}
+```
+
+### Optimización de Rendimiento
+
+#### Preload de Fuentes Críticas
+```html
+<!-- Agregar en el head para fuentes críticas -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+```
+
+#### Font Display
+```css
+/* Configurar font-display para mejor rendimiento */
+@font-face {
+    font-family: 'Libre Baskerville';
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Work Sans';
+    font-display: swap;
+}
+```
+
+### Fallbacks de Fuente
+
+#### Sistema de Fallbacks
+```css
+:root {
+    --font-primary: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-heading: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+}
+```
+
+#### Fallbacks por Elemento
+```css
+.hero-title {
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+}
+
+body {
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+```
+
+### Configuración de Peso de Fuente
+
+#### Pesos Disponibles
+```css
+/* Work Sans */
+.font-light { font-weight: 300; }    /* Light */
+.font-normal { font-weight: 400; }   /* Regular */
+.font-medium { font-weight: 500; }   /* Medium */
+
+/* Libre Baskerville */
+.font-bold { font-weight: 700; }     /* Bold */
+```
+
+#### Uso en Elementos
+```css
+/* Navegación */
+nav a {
+    font-weight: 500; /* Medium */
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-weight: 700; /* Bold */
+}
+
+/* Texto del cuerpo */
+p {
+    font-weight: 400; /* Regular */
+}
+
+/* Énfasis */
+.emphasis {
+    font-weight: 500; /* Medium */
+}
+```
+
+### Configuración de Espaciado
+
+#### Letter Spacing
+```css
+/* Títulos principales */
+.hero-title {
+    letter-spacing: 0.05em;
+}
+
+/* Navegación */
+nav a {
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Texto del cuerpo */
+body {
+    letter-spacing: 0.01em;
+}
+```
+
+#### Line Height
+```css
+/* Títulos */
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+/* Texto del cuerpo */
+p {
+    line-height: 1.6;
+}
+
+/* Listas */
+ul, ol {
+    line-height: 1.8;
+}
+```
+
 ## 📱 Secciones del Sitio
 
 ### 1. **Header/Navegación**
@@ -451,6 +761,11 @@ X-Content-Type-Options = "nosniff"
 - Verificar JavaScript habilitado
 - Comprobar Intersection Observer
 - Revisar clases CSS
+
+#### Fuentes no cargan
+- Verificar conexión a internet
+- Comprobar enlaces de Google Fonts
+- Revisar fallbacks de fuentes
 
 ## 📞 Soporte y Contacto
 
